@@ -100,21 +100,20 @@ public abstract class AbstractApi {
     @ResponseBody
     public void handleTxRuntimeException(TxException exceptionRaised, HttpServletResponse response) throws IOException {
         if (exceptionRaised.getStatusCode() >= HttpServletResponse.SC_INTERNAL_SERVER_ERROR) {
-            log.error("Exception handled by spring, will return status code error " + exceptionRaised.getStatusCode(), exceptionRaised);
+            log.error("Exception handled by spring, will return status code error " + exceptionRaised.getStatusCode() + ":\r\n" + exceptionRaised.getMessage());
         } else {
             if (log.isTraceEnabled()) {
-                log.trace("Exception handled by spring, will return status code error " + exceptionRaised.getStatusCode(), exceptionRaised);
+                log.trace("Exception handled by spring, will return status code error " + exceptionRaised.getStatusCode() + ":\n" + exceptionRaised.getMessage());
             }
         }
         response.setStatus(exceptionRaised.getStatusCode());
         writeError(response, exceptionRaised);
     }
 
-
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public void handleException(Exception e, HttpServletResponse response) throws IOException {
-        log.error("Exception handled by Spring, return status code 500: ", e);
+        log.error("Exception handled by Spring, return status code 500:\r\n" + e.getMessage());
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         writeError(response, e);
     }

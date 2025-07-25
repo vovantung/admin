@@ -6,12 +6,13 @@ import org.springframework.transaction.annotation.Transactional;
 import txu.admin.mainapp.base.AbstractDao;
 import txu.admin.mainapp.entity.AccountEntity;
 
+import java.util.List;
+
 @Repository
 public class AccountDao extends AbstractDao<AccountEntity> {
     @Transactional
     public AccountEntity save(AccountEntity accountEntity) {
-
-            if (accountEntity.getId() == null || accountEntity.getId() == 0) {
+        if (accountEntity.getId() == null || accountEntity.getId() == 0) {
             persist(accountEntity);
             return accountEntity;
         } else {
@@ -30,18 +31,19 @@ public class AccountDao extends AbstractDao<AccountEntity> {
         getEntityManager().remove(accountEntity);
     }
 
-    public AccountEntity getByUsername(String username){
+    public AccountEntity getByUsername(String username) {
         StringBuilder queryString = new StringBuilder("SELECT A FROM AccountEntity AS A WHERE username=:username");
         Query query = getEntityManager().createQuery(queryString.toString());
         query.setParameter("username", username);
         return getSingle(query);
     }
 
-    public AccountEntity findByUsername(String username){
-        StringBuilder queryString = new StringBuilder("SELECT A FROM AccountEntity AS A WHERE username=:username");
+    public List<AccountEntity> getWithLimit(int limit) {
+        StringBuilder queryString = new StringBuilder("SELECT A FROM AccountEntity AS A ORDER BY A.createdAt DESC");
         Query query = getEntityManager().createQuery(queryString.toString());
-        query.setParameter("username", username);
-        return getSingle(query);
+        query.setMaxResults(limit);
+        return getRessultList(query);
+
     }
 
 }
