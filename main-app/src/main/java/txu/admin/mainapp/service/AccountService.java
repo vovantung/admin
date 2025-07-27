@@ -25,7 +25,9 @@ public class AccountService {
     @Transactional
     public AccountEntity createOrUpdate(AccountEntity accountEntity) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        accountEntity.setPassword(bCryptPasswordEncoder.encode(accountEntity.getPassword()));
+        if(accountEntity.getPassword() != null){
+            accountEntity.setPassword(bCryptPasswordEncoder.encode(accountEntity.getPassword()));
+        }
         accountEntity.setCreatedAt(DateTime.now().toDate());
         accountEntity.setUpdateAt(DateTime.now().toDate());
         AccountEntity account = null;
