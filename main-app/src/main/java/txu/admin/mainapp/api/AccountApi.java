@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/account")
 @RequiredArgsConstructor
-public class Api extends AbstractApi {
+public class AccountApi extends AbstractApi {
 
     private final AccountService accountService;
 

@@ -38,6 +38,13 @@ public class AccountDao extends AbstractDao<AccountEntity> {
         return getSingle(query);
     }
 
+    public AccountEntity getByEmail(String email) {
+        StringBuilder queryString = new StringBuilder("SELECT A FROM AccountEntity AS A WHERE email=:email");
+        Query query = getEntityManager().createQuery(queryString.toString());
+        query.setParameter("email", email);
+        return getSingle(query);
+    }
+
     public List<AccountEntity> getWithLimit(int limit) {
         StringBuilder queryString = new StringBuilder("SELECT A FROM AccountEntity AS A ORDER BY A.createdAt DESC");
         Query query = getEntityManager().createQuery(queryString.toString());

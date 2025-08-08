@@ -2,6 +2,7 @@ package txu.admin.mainapp.security;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,6 +10,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import txu.admin.mainapp.dao.AccountDao;
 import txu.admin.mainapp.entity.AccountEntity;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -18,7 +26,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     private final AccountDao accountDao;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public CustomUserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         AccountEntity user = accountDao.getByUsername(username);
 
@@ -28,8 +36,14 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
 
         String[] roles = user.getRole().split(",");
+        List<GrantedAuthority> authorities = Arrays.stream(roles)
+                .map(String::trim)
+                .map(SimpleGrantedAuthority::new)
+                .collect(Collectors.toList());
 
-        return User.withUsername(user.getUsername()).password(user.getPassword()).roles(roles).build();
+//        return User.withUsername(user.getUsername()).password(user.getPassword()).roles(roles).build();
+
+        return new CustomUserDetails(user.getId(),user.getUsername(),user.getPassword(), user.getEmail(), user.getDepartment().getId(), authorities);
     }
 
 }

@@ -8,9 +8,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import txu.admin.mainapp.dao.AccountDao;
+import txu.admin.mainapp.dao.DepartmentDao;
 import txu.admin.mainapp.entity.AccountEntity;
+import txu.common.exception.BadParameterException;
 import txu.common.exception.ConflictException;
 import txu.common.exception.NotFoundException;
+import txu.common.exception.TxException;
 
 import java.util.List;
 
@@ -21,33 +24,95 @@ import java.util.List;
 public class AccountService {
 
     private final AccountDao accountDao;
+    private final DepartmentDao departmentDao;
 
     @Transactional
     public AccountEntity createOrUpdate(AccountEntity accountEntity) {
+
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        if(accountEntity.getPassword() != null){
-            accountEntity.setPassword(bCryptPasswordEncoder.encode(accountEntity.getPassword()));
-        }
-        accountEntity.setCreatedAt(DateTime.now().toDate());
-        accountEntity.setUpdateAt(DateTime.now().toDate());
-        AccountEntity account = null;
-        try {
-            account = accountDao.save(accountEntity);
-        } catch (DataIntegrityViolationException ex) {
-            // Log hoặc custom response
-            log.warn(ex.getMessage());
-            throw new ConflictException(ex.getMessage());
-//            if (ex.getCause() instanceof ConstraintViolationException) {
-//                Throwable realCause = ex.getCause().getCause();
-//                if (realCause instanceof SQLException && realCause.getMessage().contains("ORA-00001")) {
-//                    log.warn("Username đã tồn tại.");
-//                    throw new ConflictException("Username đã tồn tại.");
-//                }
-//            }
-//            throw ex; // nếu không phải lỗi unique thì ném lại
+
+        // Add new
+        if (accountEntity.getId() == null || accountEntity.getId() == 0) {
+            if (accountEntity.getUsername() == null || accountEntity.getUsername().isEmpty()) {
+                throw new BadParameterException("Username is required");
+            }
+            if (accountEntity.getPassword() == null || accountEntity.getPassword().isEmpty()) {
+                throw new BadParameterException("Password is required");
+            }
+
+            if (accountEntity.getEmail() == null || accountEntity.getEmail().isEmpty()) {
+                throw new BadParameterException("Email is required");
+            }
+
+            if (accountDao.getByUsername(accountEntity.getUsername()) != null) {
+                throw new ConflictException("Account with [" + accountEntity.getUsername() + "]  already exists");
+            }
+
+            if (accountDao.getByEmail(accountEntity.getEmail()) != null) {
+                throw new ConflictException("Account with [" + accountEntity.getEmail() + "]  already exists");
+            }
+
+            if (departmentDao.findById(accountEntity.getDepartment().getId()) == null) {
+                throw new NotFoundException("Department not found");
+            }
+
+            if (accountEntity.getPassword() != null && !accountEntity.getPassword().isEmpty()) {
+                accountEntity.setPassword(bCryptPasswordEncoder.encode(accountEntity.getPassword()));
+            }
+            accountEntity.setCreatedAt(DateTime.now().toDate());
+            accountEntity.setUpdateAt(DateTime.now().toDate());
+            AccountEntity account = null;
+
+            try {
+                account = accountDao.save(accountEntity);
+            } catch (DataIntegrityViolationException ex) {
+                log.warn(ex.getMessage());
+                throw new TxException("Cannot save account");
+            }
+            return account;
         }
 
-        return account;
+        // Update
+        AccountEntity account = accountDao.findById(accountEntity.getId());
+
+        if (account != null) {
+
+            if (accountDao.getByEmail(accountEntity.getEmail()) != null && !account.getEmail().equals(accountEntity.getEmail())) {
+                throw new ConflictException("Account with [" + accountEntity.getEmail() + "]  already exists");
+            }
+            if (departmentDao.findById(accountEntity.getDepartment().getId()) == null) {
+                throw new NotFoundException("Department not found");
+            }
+
+            if (accountEntity.getPassword() != null && !accountEntity.getPassword().isEmpty()) {
+                account.setPassword(bCryptPasswordEncoder.encode(accountEntity.getPassword()));
+            }
+            if (accountEntity.getLastName() != null && !accountEntity.getLastName().isEmpty()) {
+                account.setLastName(accountEntity.getLastName());
+            }
+            if (accountEntity.getFirstName() != null && !accountEntity.getFirstName().isEmpty()) {
+                account.setFirstName(accountEntity.getFirstName());
+            }
+            if (accountEntity.getEmail() != null && !accountEntity.getEmail().isEmpty()) {
+                account.setEmail(accountEntity.getEmail());
+            }
+            if (accountEntity.getPhoneNumber() != null && !accountEntity.getPhoneNumber().isEmpty()) {
+                account.setPhoneNumber(accountEntity.getPhoneNumber());
+            }
+
+            account.setDepartment(accountEntity.getDepartment());
+            account.setUpdateAt(DateTime.now().toDate());
+
+            try {
+                return accountDao.save(account);
+            } catch (DataIntegrityViolationException ex) {
+                log.warn(ex.getMessage());
+                throw new TxException("Cannot save account");
+            }
+        } else {
+            throw new NotFoundException("Account not found");
+        }
+
     }
 
     @Transactional

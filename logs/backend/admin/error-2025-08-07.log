@@ -1,0 +1,2 @@
+2025-08-07 10:20:58.432 ERROR [main] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-12541: Cannot connect. No listener at host 192.168.98.146 port 1521. (CONNECTION_ID=J5vtCi7fQa6fK5PNDwfxbA==)
+https://docs.oracle.com/error-help/db/ora-12541/
