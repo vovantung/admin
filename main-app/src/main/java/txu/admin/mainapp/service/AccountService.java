@@ -4,17 +4,22 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import txu.admin.mainapp.dao.AccountDao;
 import txu.admin.mainapp.dao.DepartmentDao;
 import txu.admin.mainapp.entity.AccountEntity;
+import txu.admin.mainapp.security.CustomUserDetails;
 import txu.common.exception.BadParameterException;
 import txu.common.exception.ConflictException;
 import txu.common.exception.NotFoundException;
 import txu.common.exception.TxException;
 
+import java.util.Collection;
 import java.util.List;
 
 
@@ -135,5 +140,26 @@ public class AccountService {
         }
         accountDao.remove(account);
         return true;
+    }
+
+    public CustomUserDetails getCurrentUser(){
+        // Lấy thông tin người dùng gửi request thông qua token, mà lớp filter đã thực hiện qua lưu vào Security context holder
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        CustomUserDetails userDetails;
+        if (authentication != null && authentication.isAuthenticated()) {
+            Object principal = authentication.getPrincipal();
+            if (principal instanceof CustomUserDetails) {
+                userDetails = (CustomUserDetails) principal;
+                String username = userDetails.getUsername();
+                Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
+            } else {
+                userDetails = null;
+            }
+        } else {
+            userDetails = null;
+        }
+        return userDetails;
+
     }
 }

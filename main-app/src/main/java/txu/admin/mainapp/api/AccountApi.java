@@ -2,14 +2,19 @@ package txu.admin.mainapp.api;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import txu.admin.mainapp.base.AbstractApi;
 import txu.admin.mainapp.dto.LimitRequest;
 import txu.admin.mainapp.dto.UsernameRequest;
 import txu.admin.mainapp.entity.AccountEntity;
+import txu.admin.mainapp.security.CustomUserDetails;
 import txu.admin.mainapp.service.AccountService;
 
 
+import java.util.Collection;
 import java.util.List;
 
 @Slf4j
@@ -38,6 +43,11 @@ public class AccountApi extends AbstractApi {
     @PostMapping(value = "get-by-username")
     public AccountEntity getByUsername(@RequestBody UsernameRequest request){
         return accountService.getByUsername(request.getUsername());
+    }
+
+    @GetMapping(value = "get-current-user")
+    public CustomUserDetails getCurrentUser(){
+        return accountService.getCurrentUser();
     }
 
 }

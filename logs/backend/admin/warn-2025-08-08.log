@@ -1,0 +1,32 @@
+2025-08-08 19:16:03.619 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-08 19:16:04.916 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-08 19:16:27.650 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 19:16:27.650 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 19:16:27.650 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 19:16:27.668 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 19:58:26.913 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-08 19:58:28.164 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-08 19:58:55.914 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-08 19:58:57.233 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-08 20:00:15.878 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 20:00:15.878 WARN  [http-nio-8080-exec-3] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 20:00:16.665 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 20:00:20.539 WARN  [http-nio-8080-exec-8] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 21:22:05.893 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-08 21:22:08.358 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-08 21:22:09.892 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 21:22:09.892 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 21:22:10.706 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 21:22:10.706 WARN  [http-nio-8080-exec-6] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 21:22:12.500 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 21:22:12.503 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-08 21:22:27.398 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-08 21:22:29.006 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-08 21:23:43.501 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=46s172ms83µs100ns).
+2025-08-08 21:29:31.226 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=47s662ms306µs500ns).
+2025-08-08 21:30:17.351 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=46s124ms831µs400ns).
+2025-08-08 21:42:41.694 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=55s796ms825µs600ns).
+2025-08-08 22:14:43.453 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-08 22:14:44.721 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-08 23:28:44.094 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-08 23:28:45.307 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
