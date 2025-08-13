@@ -32,6 +32,9 @@ public class WeeklyReportService {
     @Value("${minio.bucket}")
     private String bucketName;
 
+    @Value("${minio.url}")
+    private String url;
+
     public WeeklyReportEntity create(MultipartFile file) throws Exception {
 
         // Lấy thông tin người dùng gửi request thông qua token, mà lớp filter đã thực hiện qua lưu vào Security context holder
@@ -98,7 +101,7 @@ public class WeeklyReportService {
                         .build()
         );
 
-        String fileUrl = String.format("https://storage.txuapp.com/%s/%s", bucketName, filename);
+        String fileUrl = String.format( url + "/%s/%s", bucketName, filename);
 
         // Save metadata
         DepartmentEntity department = null;

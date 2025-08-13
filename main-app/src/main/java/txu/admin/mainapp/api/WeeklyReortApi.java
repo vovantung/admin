@@ -1,6 +1,7 @@
 package txu.admin.mainapp.api;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,8 @@ import java.util.List;
 @RequestMapping("/weekly-report")
 @RequiredArgsConstructor
 public class WeeklyReortApi extends AbstractApi {
+
+
     private final WeeklyReportService weeklyReportService;
 
     @PostMapping("/create")
