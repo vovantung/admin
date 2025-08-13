@@ -3,3 +3,20 @@
 2025-08-13 00:00:43.226 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
 2025-08-13 00:00:43.227 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
 2025-08-13 00:00:48.124 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 07:30:42.354 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@741f8e78 (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 07:30:42.715 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h52m10s273ms137µs500ns).
+2025-08-13 07:30:42.716 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@13711e1c (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 07:30:42.720 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@2ca16ba (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 07:30:42.720 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@680091c4 (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 07:30:42.721 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@704c2f05 (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 09:12:47.844 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 09:12:47.844 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 09:12:47.844 WARN  [http-nio-8080-exec-6] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 09:12:47.844 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 09:12:47.961 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 09:12:48.120 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
