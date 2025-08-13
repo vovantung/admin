@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import txu.admin.mainapp.base.AbstractApi;
 import txu.admin.mainapp.dto.DepartmentDto;
-import txu.admin.mainapp.dto.DepartmentRequest;
+import txu.admin.mainapp.dto.IdRequest;
 import txu.admin.mainapp.dto.FromDateToDateRequest;
 import txu.admin.mainapp.dto.LimitRequest;
 import txu.admin.mainapp.entity.WeeklyReportEntity;
@@ -49,12 +49,12 @@ public class WeeklyReortApi extends AbstractApi {
 
 
     @PostMapping(value = "get-by-id")
-    public WeeklyReportEntity getById(@RequestBody DepartmentRequest request){
+    public WeeklyReportEntity getById(@RequestBody IdRequest request){
         return  weeklyReportService.getById(request.getId());
     }
 
     @DeleteMapping(value = "remove")
-    public boolean removeById(@RequestBody DepartmentRequest request){
+    public boolean removeById(@RequestBody IdRequest request){
         return weeklyReportService.removeById(request.getId());
     }
 }

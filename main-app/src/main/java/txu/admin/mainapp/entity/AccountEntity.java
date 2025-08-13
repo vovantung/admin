@@ -3,7 +3,6 @@ package txu.admin.mainapp.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import java.io.Serializable;
 import java.time.ZoneId;
@@ -15,15 +14,6 @@ import java.util.Date;
 @Getter
 @Table(name = "ACCOUNT")
 public class AccountEntity implements Serializable {
-
-//    @Getter
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "emp_seq_gen")
-//    @SequenceGenerator(name = "emp_seq_gen", sequenceName = "ISEQ$$_73091", allocationSize = 1)
-//    @Column(name = "ID")
-//    private Long id;
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
@@ -37,7 +27,6 @@ public class AccountEntity implements Serializable {
     @Column(name = "PASSWORD")
     private String password;
 
-    //
     @Column(name = "LASTNAME")
     @Getter
     private String lastName;
@@ -45,7 +34,6 @@ public class AccountEntity implements Serializable {
     @Column(name = "FIRSTNAME")
     @Getter
     private String firstName;
-
 
     @Column(name = "PHONENUMBER")
     @Getter
@@ -55,15 +43,13 @@ public class AccountEntity implements Serializable {
     @Getter
     private String avatar;
 
-
-
     @Column(name = "EMAIL")
     @Getter
     private String email;
 
-    @Column(name = "ROLE")
-    @Getter
-    private String role;
+    @ManyToOne
+    @JoinColumn(name = "ROLE_ID")
+    private RoleEntity role;
 
     @ManyToOne
     @JoinColumn(name = "DEPARTMENT_ID")

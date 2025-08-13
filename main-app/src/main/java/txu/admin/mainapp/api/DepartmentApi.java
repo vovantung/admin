@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import txu.admin.mainapp.base.AbstractApi;
-import txu.admin.mainapp.dto.DepartmentRequest;
+import txu.admin.mainapp.dto.IdRequest;
 import txu.admin.mainapp.dto.LimitRequest;
 import txu.admin.mainapp.entity.DepartmentEntity;
 import txu.admin.mainapp.service.DepartmentService;
@@ -30,12 +30,12 @@ public class DepartmentApi extends AbstractApi {
     }
 
     @PostMapping(value = "get-by-id")
-    public DepartmentEntity getById(@RequestBody DepartmentRequest request){
+    public DepartmentEntity getById(@RequestBody IdRequest request){
         return  departmentService.getById(request.getId());
     }
 
     @DeleteMapping(value = "remove")
-    public boolean removeById(@RequestBody DepartmentRequest request){
+    public boolean removeById(@RequestBody IdRequest request){
         return departmentService.removeById(request.getId());
     }
 

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import txu.admin.mainapp.dao.AccountDao;
 import txu.admin.mainapp.dao.DepartmentDao;
+import txu.admin.mainapp.dao.RoleDao;
 import txu.admin.mainapp.entity.AccountEntity;
 import txu.admin.mainapp.security.CustomUserDetails;
 import txu.common.exception.BadParameterException;
@@ -30,6 +31,7 @@ public class AccountService {
 
     private final AccountDao accountDao;
     private final DepartmentDao departmentDao;
+    private  final RoleDao roleDao;
 
     @Transactional
     public AccountEntity createOrUpdate(AccountEntity accountEntity) {
@@ -61,6 +63,10 @@ public class AccountService {
                 throw new NotFoundException("Department not found");
             }
 
+            if(roleDao.findById(accountEntity.getRole().getId()) == null) {
+                throw new NotFoundException("Role not found");
+            }
+
             if (accountEntity.getPassword() != null && !accountEntity.getPassword().isEmpty()) {
                 accountEntity.setPassword(bCryptPasswordEncoder.encode(accountEntity.getPassword()));
             }
@@ -89,6 +95,10 @@ public class AccountService {
                 throw new NotFoundException("Department not found");
             }
 
+            if (roleDao.findById(accountEntity.getRole().getId()) == null) {
+                throw new NotFoundException("Role not found");
+            }
+
             if (accountEntity.getPassword() != null && !accountEntity.getPassword().isEmpty()) {
                 account.setPassword(bCryptPasswordEncoder.encode(accountEntity.getPassword()));
             }
@@ -106,6 +116,8 @@ public class AccountService {
             }
 
             account.setDepartment(accountEntity.getDepartment());
+            account.setRole(accountEntity.getRole());
+
             account.setUpdateAt(DateTime.now().toDate());
 
             try {
@@ -158,12 +170,6 @@ public class AccountService {
             account = null;
         }
         return account;
-
-
-
-
-
-
 
 
     }

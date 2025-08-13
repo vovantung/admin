@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class DepartmentRequest {
+public class IdRequest {
     private int id;
 }

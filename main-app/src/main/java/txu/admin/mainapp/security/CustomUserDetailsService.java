@@ -35,7 +35,10 @@ public class CustomUserDetailsService implements UserDetailsService {
             return null;
         }
 
-        String[] roles = user.getRole().split(",");
+//        String[] roles = user.getRole().split(",");
+        String[] roles = user.getRole().getName().split(","); // Tạm giữ logic cũ, ở đây là môt chuỗi gồm các role cách nhau  bởi dâu phẩy
+        // Trên thực tế đây là một role duy nhất
+
         List<GrantedAuthority> authorities = Arrays.stream(roles)
                 .map(String::trim)
                 .map(SimpleGrantedAuthority::new)
