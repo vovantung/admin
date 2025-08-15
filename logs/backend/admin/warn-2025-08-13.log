@@ -1,0 +1,353 @@
+2025-08-13 00:00:43.180 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 00:00:43.178 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 00:00:43.226 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 00:00:43.227 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 00:00:48.124 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 07:30:42.354 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@741f8e78 (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 07:30:42.715 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h52m10s273ms137µs500ns).
+2025-08-13 07:30:42.716 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@13711e1c (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 07:30:42.720 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@2ca16ba (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 07:30:42.720 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@680091c4 (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 07:30:42.721 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@704c2f05 (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 09:12:47.844 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 09:12:47.844 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 09:12:47.844 WARN  [http-nio-8080-exec-6] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 09:12:47.844 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 09:12:47.961 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 09:12:48.120 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:48:57.912 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:48:57.912 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:48:57.912 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:48:57.912 WARN  [http-nio-8080-exec-7] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:48:57.912 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:48:57.915 WARN  [http-nio-8080-exec-3] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:48:57.918 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:48:57.918 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:48:57.918 WARN  [http-nio-8080-exec-6] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:48:57.918 WARN  [http-nio-8080-exec-7] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:49:24.287 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13 10:49:25.808 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13 10:50:11.754 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:53:58.774 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m54s929ms339µs800ns).
+2025-08-13 10:54:05.412 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13 10:54:06.787 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13 10:54:13.789 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:54:13.789 WARN  [http-nio-8080-exec-3] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:54:14.386 WARN  [http-nio-8080-exec-7] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 10:54:14.553 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 11:00:44.960 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13 11:00:46.321 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13 11:02:08.852 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13 11:02:10.171 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13 11:03:50.490 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13 11:03:51.757 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13 12:29:23.143 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 12:29:23.143 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 12:29:23.143 WARN  [http-nio-8080-exec-6] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 12:29:23.143 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 12:29:23.143 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 12:29:23.143 WARN  [http-nio-8080-exec-7] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 12:29:23.164 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 12:29:23.164 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 12:29:23.164 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 12:29:23.164 WARN  [http-nio-8080-exec-8] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 12:29:29.588 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 14:36:24.932 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13 14:36:26.688 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13 14:36:36.806 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 14:36:36.806 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 14:36:36.806 WARN  [http-nio-8080-exec-3] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 14:36:36.806 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 14:36:37.807 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 14:36:38.260 WARN  [http-nio-8080-exec-3] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 14:36:46.403 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 14:36:46.408 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 14:36:56.843 WARN  [http-nio-8080-exec-7] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 14:36:56.904 WARN  [http-nio-8080-exec-8] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 14:40:24.493 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 14:40:45.956 WARN  [http-nio-8080-exec-9] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 14:44:10.947 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m41s230ms661µs400ns).
+2025-08-13 14:45:08.780 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=57s833ms977µs500ns).
+2025-08-13 14:45:08.809 WARN  [http-nio-8080-exec-2] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 14:49:18.910 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13 14:49:20.445 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13 14:52:06.945 WARN  [http-nio-8080-exec-4] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 14:52:10.062 WARN  [http-nio-8080-exec-4] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 14:54:26.238 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13 14:54:27.436 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13 14:54:43.866 WARN  [http-nio-8080-exec-4] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 14:54:43.873 WARN  [http-nio-8080-exec-4] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 14:54:57.074 WARN  [http-nio-8080-exec-5] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 14:54:57.076 WARN  [http-nio-8080-exec-5] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 14:55:01.900 WARN  [http-nio-8080-exec-10] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 14:55:01.901 WARN  [http-nio-8080-exec-10] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 14:56:31.269 WARN  [http-nio-8080-exec-7] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 14:56:31.271 WARN  [http-nio-8080-exec-7] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 14:56:40.308 WARN  [http-nio-8080-exec-9] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 14:56:40.310 WARN  [http-nio-8080-exec-9] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 14:57:31.013 WARN  [http-nio-8080-exec-3] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 14:57:31.015 WARN  [http-nio-8080-exec-3] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 14:58:38.980 WARN  [http-nio-8080-exec-7] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 14:58:38.982 WARN  [http-nio-8080-exec-7] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:00:32.644 WARN  [http-nio-8080-exec-9] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:00:32.646 WARN  [http-nio-8080-exec-9] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:00:38.347 WARN  [http-nio-8080-exec-8] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:00:38.349 WARN  [http-nio-8080-exec-8] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:00:41.807 WARN  [http-nio-8080-exec-5] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:00:41.808 WARN  [http-nio-8080-exec-5] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:01:51.212 WARN  [http-nio-8080-exec-7] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:01:51.213 WARN  [http-nio-8080-exec-7] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:01:55.374 WARN  [http-nio-8080-exec-10] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:01:55.374 WARN  [http-nio-8080-exec-10] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:01:56.602 WARN  [http-nio-8080-exec-1] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:01:56.603 WARN  [http-nio-8080-exec-1] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:04:08.918 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13 15:04:10.175 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13 15:04:15.381 WARN  [http-nio-8080-exec-1] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:04:15.387 WARN  [http-nio-8080-exec-1] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:18:46.532 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13 15:18:47.746 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13 15:19:09.379 WARN  [http-nio-8080-exec-2] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:19:09.385 WARN  [http-nio-8080-exec-2] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:19:15.211 WARN  [http-nio-8080-exec-7] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:19:15.212 WARN  [http-nio-8080-exec-7] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:19:19.204 WARN  [http-nio-8080-exec-3] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:19:19.206 WARN  [http-nio-8080-exec-3] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:24:37.721 WARN  [http-nio-8080-exec-1] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:24:37.724 WARN  [http-nio-8080-exec-1] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:24:41.623 WARN  [http-nio-8080-exec-9] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:24:41.623 WARN  [http-nio-8080-exec-9] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:25:17.298 WARN  [http-nio-8080-exec-10] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:25:17.300 WARN  [http-nio-8080-exec-10] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:25:37.501 WARN  [http-nio-8080-exec-7] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:25:37.502 WARN  [http-nio-8080-exec-7] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_UPLOADFILE_DEPARTMENT]
+2025-08-13 15:25:45.813 WARN  [http-nio-8080-exec-10] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:25:45.815 WARN  [http-nio-8080-exec-10] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_UPLOADFILE_DEPARTMENT]
+2025-08-13 15:29:01.996 WARN  [http-nio-8080-exec-8] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:29:01.996 WARN  [http-nio-8080-exec-8] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_UPLOADFILE_DEPARTMENT]
+2025-08-13 15:29:37.711 WARN  [http-nio-8080-exec-1] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:29:37.711 WARN  [http-nio-8080-exec-1] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_UPLOADFILE_DEPARTMENT]
+2025-08-13 15:38:03.768 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:38:03.768 WARN  [http-nio-8080-exec-6] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:38:03.768 WARN  [http-nio-8080-exec-8] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:38:03.768 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:38:03.768 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:41:26.981 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:43:20.446 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:43:20.446 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:43:20.554 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:43:24.546 WARN  [http-nio-8080-exec-7] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:43:24.555 WARN  [http-nio-8080-exec-3] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:43:24.557 WARN  [http-nio-8080-exec-3] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_UPLOADFILE_DEPARTMENT]
+2025-08-13 15:43:29.268 WARN  [http-nio-8080-exec-8] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:43:29.269 WARN  [http-nio-8080-exec-8] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:43:32.359 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:43:56.823 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:45:18.950 WARN  [http-nio-8080-exec-2] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:45:18.950 WARN  [http-nio-8080-exec-2] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_UPLOADFILE_DEPARTMENT]
+2025-08-13 15:45:25.595 WARN  [http-nio-8080-exec-5] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:45:25.596 WARN  [http-nio-8080-exec-5] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 15:45:31.615 WARN  [http-nio-8080-exec-3] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 15:45:31.616 WARN  [http-nio-8080-exec-3] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_EMPLOYEES_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_EMPLOYEES_DEPARTMENT]
+2025-08-13 15:55:53.456 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:57:52.851 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 15:58:00.086 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 16:05:00.030 WARN  [http-nio-8080-exec-6] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 16:38:07.610 WARN  [http-nio-8080-exec-6] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 16:39:45.301 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 16:39:45.301 WARN  [http-nio-8080-exec-8] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 16:39:45.301 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 16:39:45.301 WARN  [http-nio-8080-exec-3] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 16:39:45.308 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 16:39:45.308 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 16:50:40.451 WARN  [http-nio-8080-exec-3] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 16:50:40.582 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 16:50:40.760 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 16:50:40.762 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 17:27:14.894 WARN  [http-nio-8080-exec-8] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 17:46:51.017 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 17:47:07.089 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 17:57:55.780 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@4bd5f7e6 (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 17:58:27.476 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@2d11e2c (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 17:58:28.459 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@392003b9 (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 17:58:54.856 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@968e037 (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 17:59:17.910 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@360f330d (ORA-17008: Closed connection
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2025-08-13 17:59:21.374 WARN  [HikariPool-1:connection-adder] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Pool is empty, failed to create/setup connection (7f4bfe87-b396-435d-a3db-ecb864f59bfd)
+java.sql.SQLException: ORA-12528: TNS:listener: all appropriate instances are blocking new connections (CONNECTION_ID=yauLG8zLTp+b5nlCKSeLwA==)
+https://docs.oracle.com/error-help/db/ora-12528/
+	at oracle.jdbc.driver.T4CConnection.handleLogonNetException(T4CConnection.java:1853)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1204)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:1189)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:106)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:887)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:694)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:139)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:368)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:205)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:483)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:747)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: oracle.net.ns.NetException: ORA-12528: TNS:listener: all appropriate instances are blocking new connections (CONNECTION_ID=yauLG8zLTp+b5nlCKSeLwA==)
+https://docs.oracle.com/error-help/db/ora-12528/
+	at oracle.net.ns.NSProtocolNIO.createRefusePacketException(NSProtocolNIO.java:935)
+	at oracle.net.ns.NSProtocolNIO.handleConnectPacketResponse(NSProtocolNIO.java:462)
+	at oracle.net.ns.NSProtocolNIO.negotiateConnection(NSProtocolNIO.java:270)
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:353)
+	at oracle.jdbc.driver.T4CConnection.connectNetworkSessionProtocol(T4CConnection.java:3684)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1083)
+	... 14 common frames omitted
+2025-08-13 18:13:21.405 WARN  [http-nio-8080-exec-8] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 18:13:22.333 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 18:13:22.404 WARN  [http-nio-8080-exec-6] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 18:13:22.520 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 18:13:49.255 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 18:18:21.713 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 18:18:21.713 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 18:18:21.716 WARN  [http-nio-8080-exec-6] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 18:18:21.716 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:17:38.622 WARN  [http-nio-8080-exec-3] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:18:52.876 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:18:52.879 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:18:52.882 WARN  [http-nio-8080-exec-3] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:18:52.882 WARN  [http-nio-8080-exec-8] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:18:52.884 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:18:52.884 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:18:53.830 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:18:53.830 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:18:53.917 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:18:53.917 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:56:04.039 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:56:13.633 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:56:31.084 WARN  [http-nio-8080-exec-6] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 19:56:31.118 WARN  [http-nio-8080-exec-3] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 19:56:31.120 WARN  [http-nio-8080-exec-3] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_EMPLOYEES_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_EMPLOYEES_DEPARTMENT]
+2025-08-13 19:56:40.810 WARN  [http-nio-8080-exec-1] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 19:56:40.812 WARN  [http-nio-8080-exec-1] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_EMPLOYEES_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_EMPLOYEES_DEPARTMENT]
+2025-08-13 21:32:48.442 WARN  [http-nio-8080-exec-8] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 21:32:48.442 WARN  [http-nio-8080-exec-4] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 21:32:48.442 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 21:32:48.442 WARN  [http-nio-8080-exec-3] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 21:36:24.163 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 21:45:07.756 WARN  [http-nio-8080-exec-8] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 21:45:07.758 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 21:45:07.830 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 21:45:07.830 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 21:49:33.765 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 21:51:33.452 WARN  [http-nio-8080-exec-3] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 21:51:33.466 WARN  [http-nio-8080-exec-6] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 21:51:33.467 WARN  [http-nio-8080-exec-6] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 21:51:42.233 WARN  [http-nio-8080-exec-1] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 21:51:42.237 WARN  [http-nio-8080-exec-1] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 21:52:48.426 WARN  [http-nio-8080-exec-9] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 21:52:48.428 WARN  [http-nio-8080-exec-9] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 21:52:51.421 WARN  [http-nio-8080-exec-5] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 21:52:51.422 WARN  [http-nio-8080-exec-5] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 21:52:54.084 WARN  [http-nio-8080-exec-3] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 21:52:54.086 WARN  [http-nio-8080-exec-3] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 21:52:57.393 WARN  [http-nio-8080-exec-6] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 21:52:57.393 WARN  [http-nio-8080-exec-6] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 21:57:06.251 WARN  [http-nio-8080-exec-6] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 21:57:06.253 WARN  [http-nio-8080-exec-6] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 21:57:09.564 WARN  [http-nio-8080-exec-4] o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 2292, SQLState: 23000
+2025-08-13 21:57:09.564 WARN  [http-nio-8080-exec-4] t.a.m.service.DepartmentService - could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
+
+https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-13 22:03:16.676 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-13 22:03:18.149 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-13 22:56:31.534 WARN  [http-nio-8080-exec-10] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 22:56:31.536 WARN  [http-nio-8080-exec-1] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 23:05:28.329 WARN  [http-nio-8080-exec-5] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 23:05:28.332 WARN  [http-nio-8080-exec-2] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String
+2025-08-13 23:47:29.530 WARN  [http-nio-8080-exec-9] t.a.m.security.JwtRequestFilter - JWT Token does not begin with Bearer String

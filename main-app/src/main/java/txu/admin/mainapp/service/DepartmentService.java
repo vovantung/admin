@@ -90,7 +90,13 @@ public class DepartmentService {
         if (department == null) {
             throw new NotFoundException("Department is not found");
         }
-        departmentDao.remove(department);
+
+        try {
+            departmentDao.remove(department);
+        } catch (DataIntegrityViolationException ex) {
+            log.warn(ex.getMessage());
+            throw new TxException(ex.getMessage());
+        }
         return true;
     }
 }
