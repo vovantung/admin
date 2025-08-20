@@ -265,22 +265,22 @@ public class AccountService {
         return true;
     }
 
-    public AccountEntity getCurrentUser() {
-        // Lấy thông tin người dùng gửi request thông qua token, mà lớp filter đã thực hiện qua lưu vào Security context holder
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        AccountEntity account;
-        if (authentication != null && authentication.isAuthenticated()) {
-            Object principal = authentication.getPrincipal();
-            if (principal instanceof CustomUserDetails userDetails) {
-                account = getByUsername(userDetails.getUsername());
-            } else {
-                account = null;
-            }
-        } else {
-            account = null;
-        }
-        return account;
-
-    }
+//    public AccountEntity getCurrentUser() {
+//        // Lấy thông tin người dùng gửi request thông qua token, mà lớp filter đã thực hiện qua lưu vào Security context holder
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//
+//        AccountEntity account;
+//        if (authentication != null && authentication.isAuthenticated()) {
+//            Object principal = authentication.getPrincipal();
+//            if (principal instanceof CustomUserDetails userDetails) {
+//                account = getByUsername(userDetails.getUsername());
+//            } else {
+//                account = null;
+//            }
+//        } else {
+//            account = null;
+//        }
+//        return account;
+//
+//    }
 }

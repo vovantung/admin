@@ -64,9 +64,9 @@ public class AccountApi extends AbstractApi {
         return accountService.getByUsername(request.getUsername());
     }
 
-    @GetMapping(value = "get-current-user")
-    public AccountEntity getCurrentUser() {
-        return accountService.getCurrentUser();
-    }
+//    @GetMapping(value = "get-current-user")
+//    public AccountEntity getCurrentUser() {
+//        return accountService.getCurrentUser();
+//    }
 
 }
