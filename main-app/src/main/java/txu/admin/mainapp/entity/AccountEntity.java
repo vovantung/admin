@@ -39,9 +39,13 @@ public class AccountEntity implements Serializable {
     @Getter
     private String phoneNumber;
 
-    @Column(name = "AVATAR")
+    @Column(name = "AVATAR_URL")
     @Getter
-    private String avatar;
+    private String avatarUrl;
+
+    @Column(name = "AVATAR_FILENAME")
+    @Getter
+    private String avatarFilename;
 
     @Column(name = "EMAIL")
     @Getter

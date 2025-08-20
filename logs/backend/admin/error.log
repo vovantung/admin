@@ -1,273 +1,30 @@
-2025-08-13 14:36:56.904 ERROR [http-nio-8080-exec-8] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 14:36:56.918 ERROR [http-nio-8080-exec-8] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 14:40:45.956 ERROR [http-nio-8080-exec-9] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 14:40:46.003 ERROR [http-nio-8080-exec-9] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 14:45:08.811 ERROR [http-nio-8080-exec-2] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 14:45:15.083 ERROR [http-nio-8080-exec-2] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 14:52:06.945 ERROR [http-nio-8080-exec-4] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 14:52:26.538 ERROR [http-nio-8080-exec-4] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 14:54:43.866 ERROR [http-nio-8080-exec-4] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 14:54:43.877 ERROR [http-nio-8080-exec-4] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 14:54:57.074 ERROR [http-nio-8080-exec-5] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 14:54:57.076 ERROR [http-nio-8080-exec-5] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 14:55:01.900 ERROR [http-nio-8080-exec-10] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 14:55:01.901 ERROR [http-nio-8080-exec-10] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 14:56:31.271 ERROR [http-nio-8080-exec-7] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 14:56:31.273 ERROR [http-nio-8080-exec-7] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 14:56:40.308 ERROR [http-nio-8080-exec-9] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 14:56:40.310 ERROR [http-nio-8080-exec-9] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 14:57:31.013 ERROR [http-nio-8080-exec-3] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 14:57:31.016 ERROR [http-nio-8080-exec-3] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 14:58:38.980 ERROR [http-nio-8080-exec-7] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 14:58:38.982 ERROR [http-nio-8080-exec-7] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 15:00:32.644 ERROR [http-nio-8080-exec-9] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:00:32.648 ERROR [http-nio-8080-exec-9] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 15:00:38.347 ERROR [http-nio-8080-exec-8] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:00:38.349 ERROR [http-nio-8080-exec-8] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 15:00:41.807 ERROR [http-nio-8080-exec-5] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:00:41.808 ERROR [http-nio-8080-exec-5] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 15:01:51.213 ERROR [http-nio-8080-exec-7] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:01:51.213 ERROR [http-nio-8080-exec-7] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 15:01:55.374 ERROR [http-nio-8080-exec-10] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:01:55.375 ERROR [http-nio-8080-exec-10] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 15:01:56.602 ERROR [http-nio-8080-exec-1] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:01:56.604 ERROR [http-nio-8080-exec-1] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-Cannot remove department
-2025-08-13 15:04:15.382 ERROR [http-nio-8080-exec-1] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:04:15.391 ERROR [http-nio-8080-exec-1] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 15:19:09.379 ERROR [http-nio-8080-exec-2] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:19:09.389 ERROR [http-nio-8080-exec-2] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 15:19:15.211 ERROR [http-nio-8080-exec-7] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:19:15.212 ERROR [http-nio-8080-exec-7] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 15:19:19.204 ERROR [http-nio-8080-exec-3] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:19:19.206 ERROR [http-nio-8080-exec-3] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 15:24:37.722 ERROR [http-nio-8080-exec-1] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:24:37.725 ERROR [http-nio-8080-exec-1] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 15:24:41.623 ERROR [http-nio-8080-exec-9] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:24:41.624 ERROR [http-nio-8080-exec-9] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 15:25:17.298 ERROR [http-nio-8080-exec-10] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:25:17.300 ERROR [http-nio-8080-exec-10] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 15:25:37.501 ERROR [http-nio-8080-exec-7] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:25:37.503 ERROR [http-nio-8080-exec-7] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_UPLOADFILE_DEPARTMENT]
-2025-08-13 15:25:45.813 ERROR [http-nio-8080-exec-10] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:25:45.815 ERROR [http-nio-8080-exec-10] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_UPLOADFILE_DEPARTMENT]
-2025-08-13 15:29:01.996 ERROR [http-nio-8080-exec-8] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:29:01.998 ERROR [http-nio-8080-exec-8] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_UPLOADFILE_DEPARTMENT]
-2025-08-13 15:29:37.711 ERROR [http-nio-8080-exec-1] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:29:37.711 ERROR [http-nio-8080-exec-1] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_UPLOADFILE_DEPARTMENT]
-2025-08-13 15:43:24.555 ERROR [http-nio-8080-exec-3] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:43:24.557 ERROR [http-nio-8080-exec-3] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_UPLOADFILE_DEPARTMENT]
-2025-08-13 15:43:29.268 ERROR [http-nio-8080-exec-8] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:43:29.269 ERROR [http-nio-8080-exec-8] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 15:45:18.950 ERROR [http-nio-8080-exec-2] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:45:18.951 ERROR [http-nio-8080-exec-2] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_UPLOADFILE_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_UPLOADFILE_DEPARTMENT]
-2025-08-13 15:45:25.596 ERROR [http-nio-8080-exec-5] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:45:25.597 ERROR [http-nio-8080-exec-5] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 15:45:31.615 ERROR [http-nio-8080-exec-3] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_EMPLOYEES_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 15:45:31.616 ERROR [http-nio-8080-exec-3] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_EMPLOYEES_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_EMPLOYEES_DEPARTMENT]
-2025-08-13 19:56:31.118 ERROR [http-nio-8080-exec-3] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_EMPLOYEES_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 19:56:31.120 ERROR [http-nio-8080-exec-3] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_EMPLOYEES_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_EMPLOYEES_DEPARTMENT]
-2025-08-13 19:56:40.810 ERROR [http-nio-8080-exec-1] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_EMPLOYEES_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 19:56:40.812 ERROR [http-nio-8080-exec-1] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_EMPLOYEES_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_EMPLOYEES_DEPARTMENT]
-2025-08-13 21:51:33.466 ERROR [http-nio-8080-exec-6] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 21:51:33.468 ERROR [http-nio-8080-exec-6] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 21:51:42.235 ERROR [http-nio-8080-exec-1] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 21:51:42.237 ERROR [http-nio-8080-exec-1] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 21:52:48.426 ERROR [http-nio-8080-exec-9] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 21:52:48.428 ERROR [http-nio-8080-exec-9] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 21:52:51.421 ERROR [http-nio-8080-exec-5] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 21:52:51.423 ERROR [http-nio-8080-exec-5] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 21:52:54.084 ERROR [http-nio-8080-exec-3] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 21:52:54.086 ERROR [http-nio-8080-exec-3] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 21:52:57.393 ERROR [http-nio-8080-exec-6] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 21:52:57.393 ERROR [http-nio-8080-exec-6] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 21:57:06.252 ERROR [http-nio-8080-exec-6] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 21:57:06.253 ERROR [http-nio-8080-exec-6] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
-2025-08-13 21:57:09.564 ERROR [http-nio-8080-exec-4] o.h.e.jdbc.spi.SqlExceptionHelper - ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/
-2025-08-13 21:57:09.566 ERROR [http-nio-8080-exec-4] txu.admin.mainapp.base.AbstractApi - Exception handled by spring, will return status code error 500:
-could not execute statement [ORA-02292: integrity constraint (TXU.FK_ACCOUNT_DEPARTMENT) violated - child record found
-
-https://docs.oracle.com/error-help/db/ora-02292/] [delete from department where id=?]; SQL [delete from department where id=?]; constraint [TXU.FK_ACCOUNT_DEPARTMENT]
+2025-08-20 00:06:18.533 ERROR [http-nio-8080-exec-10] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+File deletion failed
+2025-08-20 09:28:58.763 ERROR [http-nio-8080-exec-3] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Required part 'file' is not present.
+2025-08-20 09:29:04.379 ERROR [http-nio-8080-exec-5] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Required part 'file' is not present.
+2025-08-20 10:57:05.900 ERROR [http-nio-8080-exec-2] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Required part 'password' is not present.
+2025-08-20 10:57:29.169 ERROR [http-nio-8080-exec-5] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Required part 'password' is not present.
+2025-08-20 11:03:36.185 ERROR [http-nio-8080-exec-6] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Cannot invoke "txu.admin.mainapp.entity.DepartmentEntity.getId()" because the return value of "txu.admin.mainapp.entity.AccountEntity.getDepartment()" is null
+2025-08-20 11:25:19.913 ERROR [http-nio-8080-exec-2] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Cannot invoke "txu.admin.mainapp.entity.DepartmentEntity.getId()" because the return value of "txu.admin.mainapp.entity.AccountEntity.getDepartment()" is null
+2025-08-20 11:26:02.885 ERROR [http-nio-8080-exec-3] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Cannot invoke "txu.admin.mainapp.entity.DepartmentEntity.getId()" because the return value of "txu.admin.mainapp.entity.AccountEntity.getDepartment()" is null
+2025-08-20 11:32:01.751 ERROR [http-nio-8080-exec-3] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Cannot invoke "txu.admin.mainapp.entity.RoleEntity.getId()" because the return value of "txu.admin.mainapp.entity.AccountEntity.getRole()" is null
+2025-08-20 11:35:03.981 ERROR [http-nio-8080-exec-2] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Cannot invoke "txu.admin.mainapp.entity.RoleEntity.getId()" because the return value of "txu.admin.mainapp.entity.AccountEntity.getRole()" is null
+2025-08-20 11:47:22.224 ERROR [http-nio-8080-exec-9] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Required part 'file' is not present.
+2025-08-20 12:00:21.331 ERROR [http-nio-8080-exec-4] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Required part 'file' is not present.
+2025-08-20 12:01:36.444 ERROR [http-nio-8080-exec-5] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Required part 'file' is not present.
+2025-08-20 12:04:48.203 ERROR [http-nio-8080-exec-7] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Required part 'file' is not present.
+2025-08-20 12:08:16.367 ERROR [http-nio-8080-exec-8] txu.admin.mainapp.base.AbstractApi - Exception handled by Spring, return status code 500:
+Required part 'file' is not present.
