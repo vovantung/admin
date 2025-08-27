@@ -20,6 +20,9 @@ public class WeeklyReportEntity implements Serializable {
     @Column(name = "FILENAME")
     private String filename;
 
+    @Column(name = "ORIGINNAME")
+    private String originName;
+
     @Column(name = "URL")
     private String url;
 

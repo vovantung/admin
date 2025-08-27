@@ -49,7 +49,6 @@ public class WeeklyReportDao extends AbstractDao<WeeklyReportEntity> {
         query.setParameter("from", from);
         query.setParameter("to", to);
         return getRessultList(query);
-
     }
 
 }
