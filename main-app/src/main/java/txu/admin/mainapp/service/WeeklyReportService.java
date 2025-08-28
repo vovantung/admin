@@ -76,7 +76,7 @@ public class WeeklyReportService {
                 weeklyReportDao.remove(weeklyReportEntity);
             }
         });
-        
+
         String filename = UUID.randomUUID() + "_" + file.getOriginalFilename();
 
         // Ensure bucket exists
