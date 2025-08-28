@@ -76,8 +76,7 @@ public class WeeklyReportService {
                 weeklyReportDao.remove(weeklyReportEntity);
             }
         });
-
-
+        
         String filename = UUID.randomUUID() + "_" + file.getOriginalFilename();
 
         // Ensure bucket exists
@@ -102,7 +101,6 @@ public class WeeklyReportService {
         );
 
         String fileUrl = String.format( url + "/%s/%s", bucketName, filename);
-
         // Save metadata
         DepartmentEntity department = null;
         if (userDetails != null) {
