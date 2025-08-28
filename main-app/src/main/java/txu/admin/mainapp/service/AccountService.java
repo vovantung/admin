@@ -78,7 +78,7 @@ public class AccountService {
                 throw new ConflictException("Account with [" + accountEntity.getEmail() + "]  already exists");
             }
 
-            if (departmentDao.findById(accountEntity.getDepartment().getId()) != null) {
+            if (departmentDao.findById(accountEntity.getDepartment().getId()) == null) {
                 throw new NotFoundException("Department not found");
             }
 
@@ -97,7 +97,7 @@ public class AccountService {
                 account = accountDao.save(accountEntity);
             } catch (DataIntegrityViolationException ex) {
                 log.warn(ex.getMessage());
-                throw new TxException("Cannot save account");
+                throw new TxException(ex.getMessage());
             }
             return account;
         }
