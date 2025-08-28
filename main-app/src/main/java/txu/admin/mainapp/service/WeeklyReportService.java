@@ -112,6 +112,7 @@ public class WeeklyReportService {
         WeeklyReportEntity weeklyReport = new WeeklyReportEntity();
         weeklyReport.setFilename(filename);
         weeklyReport.setUrl(fileUrl);
+        weeklyReport.setOriginName(file.getOriginalFilename());
         weeklyReport.setDepartment(department);
         weeklyReport.setUploadedAt(DateTime.now().toDate());
         return weeklyReportDao.save(weeklyReport);
