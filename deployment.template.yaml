@@ -77,6 +77,7 @@ spec:
     volumeHandle: admin-logs-pv    # tự đặt, miễn unique
     volumeAttributes:
       fsName: cephfs
+      clusterID: ed07f64b-c372-11f0-8e18-000c291e3270
       monitors: |
         192.168.1.101:6789,
         192.168.1.102:6789,
