@@ -73,17 +73,16 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  csi:
-    driver: cephfs.csi.ceph.com
-    volumeHandle: pv-admin-logs
-    volumeAttributes:
-      clusterID: ed07f64b-c372-11f0-8e18-000c291e3270
-      fsName: cephfs
-      subvolumePath: /volumes/backend/backend-logs/eb6b0381-cb45-453b-89c0-8c1c19cdd28e
-    nodeStageSecretRef:
-      name: cephfs-secret
-      namespace: backend
-    nodePublishSecretRef:
+  storageClassName: cephfs-static
+  cephfs:
+    monitors:
+      - 192.168.1.101:6789
+      - 192.168.1.102:6789
+      - 192.168.1.103:6789
+    path: /volumes/backend/backend-logs/eb6b0381-cb45-453b-89c0-8c1c19cdd28e
+    readOnly: false
+    user: client.k8s
+    secretRef:
       name: cephfs-secret
       namespace: backend
 ---
@@ -95,6 +94,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
+  storageClassName: cephfs-static
   resources:
     requests:
       storage: 10Gi
