@@ -29,13 +29,52 @@ spec:
               cpu: "1000m"
             limits:
               cpu: "1000m"
+#      volumes:
+#        - name: backend-logs
+#          nfs:
+#            server: 192.168.1.60
+#            path: /mnt/data/nfs/backend_logs
       volumes:
         - name: backend-logs
-          nfs:
-            server: 192.168.1.60
-            path: /mnt/data/nfs/backend_logs
+          persistentVolumeClaim:
+            claimName: pvc-admin-logs
       imagePullSecrets:
         - name: ecr-secret
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-admin-logs
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  mountOptions:
+    - debug
+  cephfs:
+    monitors:
+      - 192.168.1.101:6789
+      - 192.168.1.102:6789
+      - 192.168.1.103:6789
+    path: /volumes/backend/backend_logs/beeff48c-763d-4027-af16-f42a80c3ad3e
+    user: client.k8s
+    secretRef:
+      name: cephfs-secret
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-admin-logs
+  namespace: backend
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  volumeName: pv-admin-logs   # bind trực tiếp
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
