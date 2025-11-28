@@ -77,6 +77,10 @@ spec:
     volumeHandle: admin-logs-pv    # tự đặt, miễn unique
     volumeAttributes:
       fsName: cephfs
+      monitors: |
+        192.168.1.101:6789,
+        192.168.1.102:6789,
+        192.168.1.103:6789
       subvolumePath: /volumes/backend/backend-logs/eb6b0381-cb45-453b-89c0-8c1c19cdd28e
     nodeStageSecretRef:
       name: cephfs-secret
