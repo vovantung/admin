@@ -76,7 +76,7 @@ spec:
   volumeMode: Filesystem
   csi:
     driver: cephfs.csi.ceph.com
-    volumeHandle: pv-admin-logs
+    volumeHandle: pv-admin-logs1
     volumeAttributes:
       fsName: cephfs
       rootPath: /volumes/backend/backend-logs/eb6b0381-cb45-453b-89c0-8c1c19cdd28e
