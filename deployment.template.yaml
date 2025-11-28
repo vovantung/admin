@@ -69,7 +69,7 @@ metadata:
   name: pv-admin-logs
 spec:
   capacity:
-    storage: 5Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
@@ -98,7 +98,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  volumeName: pv-admin-logs   # bind trực tiếp
+  volumeName: pv-admin-log
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
