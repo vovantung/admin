@@ -41,6 +41,28 @@ spec:
       imagePullSecrets:
         - name: ecr-secret
 ---
+#apiVersion: v1
+#kind: PersistentVolume
+#metadata:
+#  name: pv-admin-logs
+#spec:
+#  capacity:
+#    storage: 10Gi
+#  accessModes:
+#    - ReadWriteMany
+#  persistentVolumeReclaimPolicy: Retain
+#  mountOptions:
+#    - debug
+#  cephfs:
+#    monitors:
+#      - 192.168.1.101:6789
+#      - 192.168.1.102:6789
+#      - 192.168.1.103:6789
+#    path: /volumes/backend/backend_logs/beeff48c-763d-4027-af16-f42a80c3ad3e
+#    user: k8s
+#    secretRef:
+#      name: cephfs-secret
+---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -51,17 +73,19 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  mountOptions:
-    - debug
   cephfs:
     monitors:
       - 192.168.1.101:6789
       - 192.168.1.102:6789
       - 192.168.1.103:6789
     path: /volumes/backend/backend_logs/beeff48c-763d-4027-af16-f42a80c3ad3e
-    user: k8s
+    user: client.k8s
     secretRef:
       name: cephfs-secret
+      namespace: backend
+  mountOptions:
+    - debug
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
