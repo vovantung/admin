@@ -66,22 +66,19 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name:  pv-admin-logs
+  name: pv-admin-logs
 spec:
   capacity:
     storage: 10Gi
   accessModes:
     - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
   csi:
     driver: cephfs.csi.ceph.com
-    volumeHandle: admin-logs-pv    # tự đặt, miễn unique
+    volumeHandle: pv-admin-logs
     volumeAttributes:
-      fsName: cephfs
       clusterID: ed07f64b-c372-11f0-8e18-000c291e3270
-      monitors: |
-        192.168.1.101:6789,
-        192.168.1.102:6789,
-        192.168.1.103:6789
+      fsName: cephfs
       subvolumePath: /volumes/backend/backend-logs/eb6b0381-cb45-453b-89c0-8c1c19cdd28e
     nodeStageSecretRef:
       name: cephfs-secret
