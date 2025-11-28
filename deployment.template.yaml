@@ -98,7 +98,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  volumeName: pv-admin-log
+  volumeName: pv-admin-logs
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
