@@ -69,7 +69,7 @@ metadata:
   name: pv-admin-logs
 spec:
   capacity:
-    storage: 10Gi
+    storage: 5Gi
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
