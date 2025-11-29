@@ -37,7 +37,7 @@ spec:
       volumes:
         - name: backend-logs
           persistentVolumeClaim:
-            claimName: pvc-ad
+            claimName: pvc-admin-logs
       imagePullSecrets:
         - name: ecr-secret
 ---
@@ -66,41 +66,31 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv-ad
-  namespace: backend
+  name: pv-admin-logs
 spec:
   capacity:
     storage: 10Gi
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  volumeMode: Filesystem
-  storageClassName: ""
   csi:
     driver: cephfs.csi.ceph.com
-    volumeHandle: pv-ad
+    volumeHandle: pv-admin-logs
     volumeAttributes:
-      fsName: cephfs
-      rootPath: /volumes/backend/backend-logs/eb6b0381-cb45-453b-89c0-8c1c19cdd28e
       clusterID: ed07f64b-c372-11f0-8e18-000c291e3270
-      subvolumePath: /volumes/backend/backend-logs/eb6b0381-cb45-453b-89c0-8c1c19cdd28e
-      subvolumeName: backend_logs
-      pool: cephfs.cephfs.data
-      mounter: fuse
+      fsName: cephfs
+      subvolumePath: /volumes/csi/backend-logs/2b4f0cd1-58fd-452f-8ff1-a8526fc5ad53
     nodeStageSecretRef:
       name: cephfs-secret
       namespace: backend
     nodePublishSecretRef:
       name: cephfs-secret
       namespace: backend
-    controllerPublishSecretRef:
-      name: cephfs-secret
-      namespace: backend
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-ad
+  name: pvc-admin-logs
   namespace: backend
 spec:
   accessModes:
@@ -108,8 +98,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  volumeName: pv-ad
-  storageClassName: ""
+  volumeName: pv-admin-logs
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
