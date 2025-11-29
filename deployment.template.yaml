@@ -75,13 +75,14 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   csi:
     driver: cephfs.csi.ceph.com
-    volumeHandle: pv-admin-logs
+    volumeHandle: backend-logs
     volumeAttributes:
       clusterID: ed07f64b-c372-11f0-8e18-000c291e3270
       fsName: cephfs
       monitors: 192.168.1.101:6789,192.168.1.102:6789,192.168.1.103:6789
       provisionVolume: "false"
       subvolumePath: /volumes/csi/backend-logs/2b4f0cd1-58fd-452f-8ff1-a8526fc5ad53
+      rootPath: /volumes/csi/backend-logs/2b4f0cd1-58fd-452f-8ff1-a8526fc5ad53
     nodeStageSecretRef:
       name: cephfs-secret
       namespace: backend
