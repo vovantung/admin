@@ -29,11 +29,6 @@ spec:
               cpu: "1000m"
             limits:
               cpu: "1000m"
-#      volumes:
-#        - name: backend-logs
-#          nfs:
-#            server: 192.168.1.60
-#            path: /mnt/data/nfs/backend_logs
       volumes:
         - name: backend-logs
           persistentVolumeClaim:
