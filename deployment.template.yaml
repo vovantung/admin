@@ -41,55 +41,6 @@ spec:
       imagePullSecrets:
         - name: ecr-secret
 ---
-#apiVersion: v1
-#kind: PersistentVolume
-#metadata:
-#  name: pv-admin-logs
-#spec:
-#  capacity:
-#    storage: 10Gi
-#  accessModes:
-#    - ReadWriteMany
-#  persistentVolumeReclaimPolicy: Retain
-#  mountOptions:
-#    - debug
-#  cephfs:
-#    monitors:
-#      - 192.168.1.101:6789
-#      - 192.168.1.102:6789
-#      - 192.168.1.103:6789
-#    path: /volumes/backend/backend_logs/beeff48c-763d-4027-af16-f42a80c3ad3e
-#    user: k8s
-#    secretRef:
-#      name: cephfs-secret
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: pv-admin-logs
-spec:
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteMany
-  persistentVolumeReclaimPolicy: Retain
-  csi:
-    driver: cephfs.csi.ceph.com
-    volumeHandle: backend-logs
-    volumeAttributes:
-      clusterID: ed07f64b-c372-11f0-8e18-000c291e3270
-      fsName: cephfs
-      monitors: 192.168.1.101:6789,192.168.1.102:6789,192.168.1.103:6789
-      provisionVolume: "false"
-      subvolumePath: /volumes/csi/backend-logs/2b4f0cd1-58fd-452f-8ff1-a8526fc5ad53
-      rootPath: /volumes/csi/backend-logs/2b4f0cd1-58fd-452f-8ff1-a8526fc5ad53
-    nodeStageSecretRef:
-      name: cephfs-secret
-      namespace: backend
-    nodePublishSecretRef:
-      name: cephfs-secret
-      namespace: backend
----
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -101,7 +52,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  volumeName: pv-admin-logs
+  volumeName: pv-backend-logs
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
