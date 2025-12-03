@@ -21,9 +21,10 @@ public class WeeklyReortApi extends AbstractApi {
 
     @PostMapping("/get-presignedurl-for-get")
     public LinkDto getPreSignedUrlForGet(@RequestBody LinkRequest request) {
-        LinkDto linkDto = null;
+        LinkDto linkDto = new LinkDto();
         try {
-            linkDto =  weeklyReportService.getPreSignedUrlForGet(request.getFilename());
+            String pre_signed_url =  weeklyReportService.getPreSignedUrlForGet(request.getFilename());
+            linkDto.setPre_signed_url(pre_signed_url);
         } catch (Exception e) {
 
         }
@@ -32,9 +33,10 @@ public class WeeklyReortApi extends AbstractApi {
 
     @PostMapping("/get-presignedurl-for-put")
     public LinkDto getPreSignedUrlForPut(@RequestBody LinkRequest request) {
-        LinkDto linkDto = null;
+        LinkDto linkDto = new LinkDto();
         try {
-            linkDto =  weeklyReportService.getPreSignedUrlForPut(request.getFilename());
+            String pre_signed_url =  weeklyReportService.getPreSignedUrlForPut(request.getFilename());
+            linkDto.setPre_signed_url(pre_signed_url);
         } catch (Exception e) {
 
         }

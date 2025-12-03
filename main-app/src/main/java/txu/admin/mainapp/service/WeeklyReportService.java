@@ -1,23 +1,31 @@
 package txu.admin.mainapp.service;
 
-import io.minio.*;
-import io.minio.http.Method;
+import com.amazonaws.AmazonServiceException;
 import lombok.RequiredArgsConstructor;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import software.amazon.awssdk.core.exception.SdkClientException;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
+import software.amazon.awssdk.services.s3.model.GetObjectRequest;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+import software.amazon.awssdk.services.s3.presigner.S3Presigner;
+import software.amazon.awssdk.services.s3.presigner.model.GetObjectPresignRequest;
+import software.amazon.awssdk.services.s3.presigner.model.PutObjectPresignRequest;
 import txu.admin.mainapp.dao.DepartmentDao;
 import txu.admin.mainapp.dao.WeeklyReportDao;
 import txu.admin.mainapp.dto.DepartmentDto;
-import txu.admin.mainapp.dto.LinkDto;
+
 import txu.admin.mainapp.dto.UploadfileInfoRequest;
 import txu.admin.mainapp.entity.DepartmentEntity;
 import txu.admin.mainapp.entity.WeeklyReportEntity;
 import txu.admin.mainapp.security.CustomUserDetails;
 import txu.common.exception.NotFoundException;
 
+import java.time.Duration;
 import java.util.*;
 
 import static txu.admin.mainapp.common.DateUtil.*;
@@ -26,47 +34,53 @@ import static txu.admin.mainapp.common.DateUtil.*;
 @RequiredArgsConstructor
 public class WeeklyReportService {
 
-    private final MinioClient minioClient;
     private final WeeklyReportDao weeklyReportDao;
     private final DepartmentDao departmentDao;
+    private final S3Client s3Client;
 
     @Value("${ceph.rgw.bucket}")
     private String bucketName;
 
-    @Value("${ceph.rgw.url}")
+    @Value("${ceph.rgw.endpoint}")
     private String url;
-    public LinkDto getPreSignedUrlForGet(String filename) throws Exception {
 
-        String pre_signed_url = minioClient.getPresignedObjectUrl(
-                GetPresignedObjectUrlArgs.builder()
-                        .method(Method.GET)
-                        .bucket(bucketName)
-                        .object(filename)
-                        .expiry(60)    // seconds
-                        .build()
-        );
-        LinkDto linkDto = new LinkDto();
-        linkDto.setPre_signed_url(pre_signed_url);
-        return linkDto;
+
+    private final S3Presigner presigner;
+
+    // ✅ UPLOAD
+    public String getPreSignedUrlForPut(String key) {
+
+        PutObjectRequest objectRequest = PutObjectRequest.builder()
+                .bucket(bucketName)
+                .key(key)
+                .build();
+
+        PutObjectPresignRequest presignRequest =
+                PutObjectPresignRequest.builder()
+                        .signatureDuration(Duration.ofMinutes(15))
+                        .putObjectRequest(objectRequest)
+                        .build();
+
+        return presigner.presignPutObject(presignRequest).url().toString();
     }
 
-    public LinkDto getPreSignedUrlForPut(String filename) throws Exception {
-        String filename_ = UUID.randomUUID() + "_" + filename;
+    // ✅ DOWNLOAD
+    public String getPreSignedUrlForGet(String key) {
 
-        String pre_signed_url = minioClient.getPresignedObjectUrl(
-                GetPresignedObjectUrlArgs.builder()
-                        .bucket(bucketName)
-                        .object(filename_)
-                        .method(Method.PUT)
-                        .expiry(500) // 10 phút
-                        .build()
-        );
+        GetObjectRequest getRequest = GetObjectRequest.builder()
+                .bucket(bucketName)
+                .key(key)
+                .build();
 
-        LinkDto linkDto = new LinkDto();
-        linkDto.setPre_signed_url(pre_signed_url);
-        linkDto.setFilename(filename_);
-        return linkDto;
+        GetObjectPresignRequest presignRequest =
+                GetObjectPresignRequest.builder()
+                        .signatureDuration(Duration.ofMinutes(15))
+                        .getObjectRequest(getRequest)
+                        .build();
+
+        return presigner.presignGetObject(presignRequest).url().toString();
     }
+
 
     public WeeklyReportEntity addReport(UploadfileInfoRequest request) throws Exception {
 
@@ -95,21 +109,21 @@ public class WeeklyReportService {
         weeklyReportEntities.forEach(weeklyReportEntity -> {
             if (weeklyReportEntity.getDepartment().getId() == userDetails.getDepartment_id()) {
 
-                if(weeklyReportEntity.getFilename() != request.getFilename()){
+                if (weeklyReportEntity.getFilename() != request.getFilename()) {
+
                     try {
-                        minioClient.removeObject(
-                                RemoveObjectArgs.builder()
-                                        .bucket(bucketName)
-                                        .object(weeklyReportEntity.getFilename())
-                                        .build()
+                        s3Client.deleteObject(DeleteObjectRequest.builder()
+                                .bucket(bucketName)
+                                .key(weeklyReportEntity.getFilename())
+                                .build()
                         );
                         System.out.println("Deleted successfully: " + weeklyReportEntity.getFilename());
-                    } catch (Exception e) {
-                        System.err.println("Error deleting file: " + e.getMessage());
-                        throw new RuntimeException("File deletion failed", e);
+                    } catch (AmazonServiceException e) {
+                        System.out.println("AWS Service error when deleting object. " + e);
+                    } catch (SdkClientException e) {
+                        System.out.println("AWS SDK client error when deleting object " + e);
                     }
                 }
-
                 // Xóa dữ liệu
                 weeklyReportDao.remove(weeklyReportEntity);
             }
@@ -117,7 +131,7 @@ public class WeeklyReportService {
 
         // Thêm kiểm tra file báo cáo có tồn tại trên bucket chưa, nếu chưa thì không cập nhật dữ liệu
 
-        String fileUrl = String.format( url + "/%s/%s", bucketName, request.getFilename());
+        String fileUrl = String.format(url + "/%s/%s", bucketName, request.getFilename());
         // Save metadata
         DepartmentEntity department = null;
         if (userDetails != null) {
