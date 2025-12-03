@@ -19,6 +19,7 @@ import txu.admin.mainapp.dao.DepartmentDao;
 import txu.admin.mainapp.dao.WeeklyReportDao;
 import txu.admin.mainapp.dto.DepartmentDto;
 
+import txu.admin.mainapp.dto.LinkDto;
 import txu.admin.mainapp.dto.UploadfileInfoRequest;
 import txu.admin.mainapp.entity.DepartmentEntity;
 import txu.admin.mainapp.entity.WeeklyReportEntity;
@@ -48,20 +49,26 @@ public class WeeklyReportService {
     private final S3Presigner presigner;
 
     // ✅ UPLOAD
-    public String getPreSignedUrlForPut(String key) {
+    public LinkDto getPreSignedUrlForPut(String key) {
+
+        LinkDto linkDto = new LinkDto();
+        String filename = UUID.randomUUID() + "_" + key;
 
         PutObjectRequest objectRequest = PutObjectRequest.builder()
                 .bucket(bucketName)
-                .key(key)
+                .key(filename)
                 .build();
 
         PutObjectPresignRequest presignRequest =
                 PutObjectPresignRequest.builder()
-                        .signatureDuration(Duration.ofMinutes(15))
+                        .signatureDuration(Duration.ofMinutes(2))
                         .putObjectRequest(objectRequest)
                         .build();
 
-        return presigner.presignPutObject(presignRequest).url().toString();
+        String pre_signed_url = presigner.presignPutObject(presignRequest).url().toString();
+        linkDto.setPre_signed_url(pre_signed_url);
+        linkDto.setFilename(filename);
+        return linkDto;
     }
 
     // ✅ DOWNLOAD
@@ -78,7 +85,8 @@ public class WeeklyReportService {
                         .getObjectRequest(getRequest)
                         .build();
 
-        return presigner.presignGetObject(presignRequest).url().toString();
+        String pre_signed_url = presigner.presignGetObject(presignRequest).url().toString();
+        return pre_signed_url;
     }
 
 

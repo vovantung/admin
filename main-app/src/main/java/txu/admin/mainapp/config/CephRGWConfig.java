@@ -12,7 +12,6 @@ import software.amazon.awssdk.services.s3.presigner.S3Presigner;
 
 import java.net.URI;
 
-
 @Configuration
 public class CephRGWConfig {
 
@@ -25,32 +24,36 @@ public class CephRGWConfig {
     @Value("${ceph.rgw.endpoint}")
     private String endpoint;
 
-
     @Bean
     public S3Client s3Client() {
         return S3Client.builder()
-                .endpointOverride(URI.create(endpoint)) // https://rgw.txuyen.com
-                .region(Region.AP_SOUTHEAST_1) // BẮT BUỘC có dù Ceph không dùng
+                .endpointOverride(URI.create(endpoint)) // DOMAIN RGW
                 .credentialsProvider(
                         StaticCredentialsProvider.create(
-                                AwsBasicCredentials.create(accessKey, secretKey)))
+                                AwsBasicCredentials.create(accessKey, secretKey)
+                        )
+                )
+                .region(Region.US_EAST_1) // RGW không quan tâm region
                 .serviceConfiguration(
                         S3Configuration.builder()
-                                .pathStyleAccessEnabled(true) // CỰC KỲ QUAN TRỌNG CHO CEPH
-                                .build())
+                                .pathStyleAccessEnabled(true)
+                                .build()
+                )
                 .build();
     }
 
     @Bean
     public S3Presigner s3Presigner() {
+        AwsBasicCredentials creds = AwsBasicCredentials.create(accessKey, secretKey);
         return S3Presigner.builder()
-                .endpointOverride(URI.create(endpoint))
-                .region(Region.US_EAST_1)
-                .credentialsProvider(
-                        StaticCredentialsProvider.create(
-                                AwsBasicCredentials.create(accessKey, secretKey)))
+                .endpointOverride(URI.create(endpoint))                // phải là rgw domain chung
+                .region(Region.US_EAST_1)                             // value bất kỳ hợp lệ
+                .credentialsProvider(StaticCredentialsProvider.create(creds))
+                .serviceConfiguration(
+                        S3Configuration.builder()
+                                .pathStyleAccessEnabled(true)                // *bắt buộc* cho Ceph
+                                .build()
+                )
                 .build();
     }
-
-
 }

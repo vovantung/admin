@@ -35,8 +35,7 @@ public class WeeklyReortApi extends AbstractApi {
     public LinkDto getPreSignedUrlForPut(@RequestBody LinkRequest request) {
         LinkDto linkDto = new LinkDto();
         try {
-            String pre_signed_url =  weeklyReportService.getPreSignedUrlForPut(request.getFilename());
-            linkDto.setPre_signed_url(pre_signed_url);
+            return weeklyReportService.getPreSignedUrlForPut(request.getFilename());
         } catch (Exception e) {
 
         }
