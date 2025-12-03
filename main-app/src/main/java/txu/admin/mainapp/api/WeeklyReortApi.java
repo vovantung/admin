@@ -1,16 +1,11 @@
 package txu.admin.mainapp.api;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import txu.admin.mainapp.base.AbstractApi;
-import txu.admin.mainapp.dto.DepartmentDto;
-import txu.admin.mainapp.dto.IdRequest;
-import txu.admin.mainapp.dto.FromDateToDateRequest;
-import txu.admin.mainapp.dto.LimitRequest;
+import txu.admin.mainapp.dto.*;
 import txu.admin.mainapp.entity.WeeklyReportEntity;
 import txu.admin.mainapp.service.WeeklyReportService;
 
@@ -24,10 +19,32 @@ public class WeeklyReortApi extends AbstractApi {
 
     private final WeeklyReportService weeklyReportService;
 
-    @PostMapping("/create")
-    public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
+    @PostMapping("/get-presignedurl-for-get")
+    public LinkDto getPreSignedUrlForGet(@RequestBody LinkRequest request) {
+        LinkDto linkDto = null;
         try {
-            WeeklyReportEntity weeklyReport = weeklyReportService.create(file);
+            linkDto =  weeklyReportService.getPreSignedUrlForGet(request.getFilename());
+        } catch (Exception e) {
+
+        }
+        return linkDto;
+    }
+
+    @PostMapping("/get-presignedurl-for-put")
+    public LinkDto getPreSignedUrlForPut(@RequestBody LinkRequest request) {
+        LinkDto linkDto = null;
+        try {
+            linkDto =  weeklyReportService.getPreSignedUrlForPut(request.getFilename());
+        } catch (Exception e) {
+
+        }
+        return linkDto;
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<?> addReport(@RequestBody UploadfileInfoRequest request) {
+        try {
+            WeeklyReportEntity weeklyReport = weeklyReportService.addReport(request);
             return ResponseEntity.ok(weeklyReport);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Upload failed: " + e.getMessage());

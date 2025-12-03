@@ -46,10 +46,10 @@ public class AccountService {
     private final RoleDao roleDao;
     private final MinioClient minioClient;
 
-    @Value("${minio.bucket}")
+    @Value("${ceph.rgw.bucket}")
     private String bucketName;
 
-    @Value("${minio.url}")
+    @Value("${ceph.rgw.url}")
     private String url;
 
     @Transactional

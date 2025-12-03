@@ -7,13 +7,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MinioConfig {
-    @Value("${minio.url}")
+    @Value("${ceph.rgw.url}")
     private String url;
 
-    @Value("${minio.access-key}")
+    @Value("${ceph.rgw.access-key}")
     private String accessKey;
 
-    @Value("${minio.secret-key}")
+    @Value("${ceph.rgw.secret-key}")
     private String secretKey;
 
     @Bean

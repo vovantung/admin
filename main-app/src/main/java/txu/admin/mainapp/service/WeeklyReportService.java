@@ -1,17 +1,18 @@
 package txu.admin.mainapp.service;
 
 import io.minio.*;
+import io.minio.http.Method;
 import lombok.RequiredArgsConstructor;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 import txu.admin.mainapp.dao.DepartmentDao;
 import txu.admin.mainapp.dao.WeeklyReportDao;
 import txu.admin.mainapp.dto.DepartmentDto;
+import txu.admin.mainapp.dto.LinkDto;
+import txu.admin.mainapp.dto.UploadfileInfoRequest;
 import txu.admin.mainapp.entity.DepartmentEntity;
 import txu.admin.mainapp.entity.WeeklyReportEntity;
 import txu.admin.mainapp.security.CustomUserDetails;
@@ -29,15 +30,49 @@ public class WeeklyReportService {
     private final WeeklyReportDao weeklyReportDao;
     private final DepartmentDao departmentDao;
 
-    @Value("${minio.bucket}")
+    @Value("${ceph.rgw.bucket}")
     private String bucketName;
 
-    @Value("${minio.url}")
+    @Value("${ceph.rgw.url}")
     private String url;
+    public LinkDto getPreSignedUrlForGet(String filename) throws Exception {
 
-    public WeeklyReportEntity create(MultipartFile file) throws Exception {
+        String pre_signed_url = minioClient.getPresignedObjectUrl(
+                GetPresignedObjectUrlArgs.builder()
+                        .method(Method.GET)
+                        .bucket(bucketName)
+                        .object(filename)
+                        .expiry(60)    // seconds
+                        .build()
+        );
+        LinkDto linkDto = new LinkDto();
+        linkDto.setPre_signed_url(pre_signed_url);
+        return linkDto;
+    }
 
-        // Lấy thông tin người dùng gửi request thông qua token, mà lớp filter đã thực hiện qua lưu vào Security context holder
+    public LinkDto getPreSignedUrlForPut(String filename) throws Exception {
+        String filename_ = UUID.randomUUID() + "_" + filename;
+
+        String pre_signed_url = minioClient.getPresignedObjectUrl(
+                GetPresignedObjectUrlArgs.builder()
+                        .bucket(bucketName)
+                        .object(filename_)
+                        .method(Method.PUT)
+                        .expiry(500) // 10 phút
+                        .build()
+        );
+
+        LinkDto linkDto = new LinkDto();
+        linkDto.setPre_signed_url(pre_signed_url);
+        linkDto.setFilename(filename_);
+        return linkDto;
+    }
+
+    public WeeklyReportEntity addReport(UploadfileInfoRequest request) throws Exception {
+
+        // Lấy thông tin người dùng gửi request thông qua token, mà lớp filter đã thực hiện qua lưu vào Security context holder.
+        // Việc lấy thông tin này ch yếu để xác định người dùng hiện tại đang ở phòng ban nào, để cập nhật hoặc tạo báo cáo cho phòng ban đó.
+        // Ở đây không xử lý xác thực người dung, vì việc này đã được thực hiện bở kong gateway
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         CustomUserDetails userDetails;
@@ -45,8 +80,8 @@ public class WeeklyReportService {
             Object principal = authentication.getPrincipal();
             if (principal instanceof CustomUserDetails) {
                 userDetails = (CustomUserDetails) principal;
-                String username = userDetails.getUsername();
-                Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
+//                String username = userDetails.getUsername();
+//                Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
             } else {
                 userDetails = null;
             }
@@ -54,53 +89,35 @@ public class WeeklyReportService {
             userDetails = null;
         }
 
-        // Nếu tồn tại những thông tin report trong tuần mà liên qua đến người dùng đang upload report hiện tại thì
-        // xóa hết report đã upload trên minio và xóa hết dữ liệu lưu ở cơ sở dữ liệu (trong tuần hiện tại)
+        // Nếu tồn tại những thông tin report trong tuần mà liên qua đến người dùng (thuộc phòng ban) đã upload report hiện tại thì
+        // xóa hết report đã upload trên lên storage1 (ngoại trừ file báo cáo hiện tại), và xóa tất cả dữ liệu lưu ở cơ sở dữ liệu (trong tuần hiện tại)
         List<WeeklyReportEntity> weeklyReportEntities = weeklyReportDao.getFromDateToDate(toDate(getStartOfWeek()), toDate(getEndOfWeek()));
         weeklyReportEntities.forEach(weeklyReportEntity -> {
             if (weeklyReportEntity.getDepartment().getId() == userDetails.getDepartment_id()) {
-                // Xóa file trên minio
-                try {
-                    minioClient.removeObject(
-                            RemoveObjectArgs.builder()
-                                    .bucket(bucketName)
-                                    .object(weeklyReportEntity.getFilename())
-                                    .build()
-                    );
-                    System.out.println("Deleted successfully: " + weeklyReportEntity.getFilename());
-                } catch (Exception e) {
-                    System.err.println("Error deleting file: " + e.getMessage());
-                    throw new RuntimeException("File deletion failed", e);
+
+                if(weeklyReportEntity.getFilename() != request.getFilename()){
+                    try {
+                        minioClient.removeObject(
+                                RemoveObjectArgs.builder()
+                                        .bucket(bucketName)
+                                        .object(weeklyReportEntity.getFilename())
+                                        .build()
+                        );
+                        System.out.println("Deleted successfully: " + weeklyReportEntity.getFilename());
+                    } catch (Exception e) {
+                        System.err.println("Error deleting file: " + e.getMessage());
+                        throw new RuntimeException("File deletion failed", e);
+                    }
                 }
+
                 // Xóa dữ liệu
                 weeklyReportDao.remove(weeklyReportEntity);
             }
         });
 
-        String filename = UUID.randomUUID() + "_" + file.getOriginalFilename();
+        // Thêm kiểm tra file báo cáo có tồn tại trên bucket chưa, nếu chưa thì không cập nhật dữ liệu
 
-        // Ensure bucket exists
-        boolean found;
-        try {
-            found = minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        if (!found) {
-            minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
-        }
-
-        // Upload to MinIO
-        minioClient.putObject(
-                PutObjectArgs.builder()
-                        .bucket(bucketName)
-                        .object(filename)
-                        .stream(file.getInputStream(), file.getSize(), -1)
-                        .contentType(file.getContentType())
-                        .build()
-        );
-
-        String fileUrl = String.format( url + "/%s/%s", bucketName, filename);
+        String fileUrl = String.format( url + "/%s/%s", bucketName, request.getFilename());
         // Save metadata
         DepartmentEntity department = null;
         if (userDetails != null) {
@@ -108,13 +125,14 @@ public class WeeklyReportService {
         }
 
         WeeklyReportEntity weeklyReport = new WeeklyReportEntity();
-        weeklyReport.setFilename(filename);
+        weeklyReport.setFilename(request.getFilename());
         weeklyReport.setUrl(fileUrl);
-        weeklyReport.setOriginName(file.getOriginalFilename());
+        weeklyReport.setOriginName(request.getFilenameOrigin());
         weeklyReport.setDepartment(department);
         weeklyReport.setUploadedAt(DateTime.now().toDate());
         return weeklyReportDao.save(weeklyReport);
     }
+
 
     public List<WeeklyReportEntity> getWithLimit(int limit) {
         return weeklyReportDao.getWithLimit(limit);
