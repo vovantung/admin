@@ -37,6 +37,7 @@ public class WeeklyReportService {
 
     private final WeeklyReportDao weeklyReportDao;
     private final DepartmentDao departmentDao;
+
     private final S3Client s3Client;
 
     @Value("${ceph.rgw.bucket}")
@@ -44,7 +45,6 @@ public class WeeklyReportService {
 
     @Value("${ceph.rgw.endpoint}")
     private String url;
-
 
     private final S3Presigner presigner;
 

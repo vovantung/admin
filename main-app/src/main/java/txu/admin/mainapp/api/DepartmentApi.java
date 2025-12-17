@@ -2,6 +2,7 @@ package txu.admin.mainapp.api;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 import txu.admin.mainapp.base.AbstractApi;
 import txu.admin.mainapp.dto.IdRequest;
@@ -29,7 +30,9 @@ public class DepartmentApi extends AbstractApi {
         return departmentService.getWithLimit(request.getLimit());
     }
 
+
     @PostMapping(value = "get-by-id")
+    @Cacheable(value = "department", key = "#request.id")
     public DepartmentEntity getById(@RequestBody IdRequest request){
         return  departmentService.getById(request.getId());
     }
