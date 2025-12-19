@@ -2,6 +2,7 @@ package txu.admin.mainapp.dao;
 
 
 import jakarta.persistence.Query;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import txu.admin.mainapp.entity.DepartmentEntity;
 
 import java.util.List;
 
+@Slf4j
 @Repository
 public class DepartmentDao extends AbstractDao<DepartmentEntity> {
 
@@ -26,6 +28,7 @@ public class DepartmentDao extends AbstractDao<DepartmentEntity> {
 
     @Override
     public DepartmentEntity findById(Object Id) {
+        log.info("Đã gọi db");
         return super.findById(Id);
     }
 
