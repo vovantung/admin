@@ -79,29 +79,8 @@ public class DepartmentService {
     }
 
 
-    private final RedisHealth redisHealth;
-    private final RedisTemplate<String, Object> redis;
-
     public DepartmentEntity getById(int id) {
-
-        if (!redisHealth.isAvailable()) {
-            return departmentDao.findById(id); // DB luôn OK
-        }
-
-        String key = "department::" + id;
-
-        try {
-            DepartmentEntity cached = (DepartmentEntity)redis.opsForValue().get(key);
-            if (cached != null) return cached;
-
-            DepartmentEntity db = departmentDao.findById(id);;
-            redis.opsForValue().set(key, db, Duration.ofMinutes(10));
-            return db;
-
-        } catch (Exception e) {
-            log.warn("Redis error → fallback DB", e);
-            return departmentDao.findById(id);
-        }
+        return departmentDao.findById(id);
     }
 
     public boolean removeById(int id) {

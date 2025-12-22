@@ -2,17 +2,16 @@ package txu.admin.mainapp.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.interceptor.CacheErrorHandler;
+import org.springframework.cache.caffeine.CaffeineCacheManager;
+import org.springframework.cache.support.CompositeCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.data.redis.cache.RedisCacheConfiguration;
+import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.connection.RedisSentinelConfiguration;
-import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration;
-import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.time.Duration;
 @Configuration
@@ -21,46 +20,20 @@ import java.time.Duration;
 public class RedisConfig {
 
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(
-            RedisConnectionFactory connectionFactory
-    ) {
-        RedisTemplate<String, Object> template = new RedisTemplate<>();
-        template.setConnectionFactory(connectionFactory);
+    @Primary
+    public CacheManager cacheManager(RedisConnectionFactory redisFactory) {
 
-        template.setKeySerializer(new StringRedisSerializer());
-        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
-
-        template.afterPropertiesSet();
-        return template;
-    }
-
-    @Bean
-    public RedisConnectionFactory redisConnectionFactory(RedisProperties properties) {
-
-        RedisSentinelConfiguration sentinel = new RedisSentinelConfiguration();
-        sentinel.master(properties.getSentinel().getMaster());
-
-        properties.getSentinel().getNodes().forEach(node -> {
-            String[] p = node.split(":");
-            sentinel.sentinel(p[0], Integer.parseInt(p[1]));
-        });
-
-        sentinel.setPassword(properties.getPassword());
-        sentinel.setDatabase(properties.getDatabase());
-
-        LettuceClientConfiguration clientConfig =
-                LettuceClientConfiguration.builder()
-                        .commandTimeout(Duration.ofSeconds(2))
-                        .shutdownTimeout(Duration.ofMillis(200))
+        CacheManager redis =
+                RedisCacheManager.builder(redisFactory)
+                        .cacheDefaults(
+                                RedisCacheConfiguration.defaultCacheConfig()
+                                        .entryTtl(Duration.ofMinutes(10))
+                        )
                         .build();
 
-        log.info("Redis Sentinel configured");
+        CacheManager caffeine =
+                new CaffeineCacheManager();
 
-        return new LettuceConnectionFactory(sentinel, clientConfig);
-    }
-
-    @Bean
-    public CacheErrorHandler cacheErrorHandler() {
-        return new RedisCacheErrorHandler();
+        return new CompositeCacheManager(redis, caffeine);
     }
 }
