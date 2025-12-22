@@ -21,7 +21,7 @@ public class CacheConfig {
         cm.setCaffeine(
                 Caffeine.newBuilder()
                         .maximumSize(10_000)
-                        .expireAfterWrite(10, TimeUnit.MINUTES)
+                        .expireAfterWrite(10, TimeUnit.SECONDS)
         );
         return cm;
     }
