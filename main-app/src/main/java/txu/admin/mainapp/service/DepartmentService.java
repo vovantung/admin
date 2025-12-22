@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import txu.common.exception.ConflictException;
 import txu.common.exception.NotFoundException;
 import txu.common.exception.TxException;
 
+import java.time.Duration;
 import java.util.List;
 
 
@@ -80,10 +82,37 @@ public class DepartmentService {
         return departmentDao.getWithLimit(limit);
     }
 
+//    public DepartmentEntity getById(int id) {
+//
+//        return departmentDao.findById(id);
+//    }
+
+    private final RedisTemplate<String, DepartmentEntity> redisTemplate;
+    private final DepartmentService departmentService;
+    private final RedisHealth redisHealth;
+
     public DepartmentEntity getById(int id) {
 
-        return departmentDao.findById(id);
+        if (!redisHealth.isAvailable()) {
+            return departmentService.getById(id); // DB luôn OK
+        }
+
+        String key = "department::" + id;
+
+        try {
+            DepartmentEntity cached = redisTemplate.opsForValue().get(key);
+            if (cached != null) return cached;
+
+            DepartmentEntity db = departmentService.getById(id);
+            redisTemplate.opsForValue().set(key, db, Duration.ofMinutes(10));
+            return db;
+
+        } catch (Exception e) {
+            log.warn("Redis error → fallback DB", e);
+            return departmentService.getById(id);
+        }
     }
+    
 
     public boolean removeById(int id) {
         DepartmentEntity department = departmentDao.findById(id);
