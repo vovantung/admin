@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Async;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import txu.admin.mainapp.dao.DepartmentDao;
 import txu.admin.mainapp.entity.DepartmentEntity;
+import txu.admin.mainapp.event.DepartmentLoadedEvent;
 import txu.common.exception.BadParameterException;
 import txu.common.exception.NotFoundException;
 import txu.common.exception.TxException;
@@ -80,16 +82,28 @@ public class DepartmentService {
         return departmentDao.getWithLimit(limit);
     }
 
-    private final ObjectProvider<RedisWarmService> redisWarmProvider;
+//    private final ObjectProvider<RedisWarmService> redisWarmProvider;
+//    public DepartmentEntity getById(int id) {
+//        DepartmentEntity dept = departmentDao.findById(id);
+//        RedisWarmService warm = redisWarmProvider.getIfAvailable();
+//        if (warm != null) {
+//            log.warn("Redis warm service ENABLED");
+//            warm.warmDepartment(id, dept);
+//        }else {
+//            log.warn("Redis warm service NOT available – skipped");
+//        }
+//        return dept;
+//    }
+
+
+    private final ApplicationEventPublisher publisher;
+
     public DepartmentEntity getById(int id) {
         DepartmentEntity dept = departmentDao.findById(id);
-        RedisWarmService warm = redisWarmProvider.getIfAvailable();
-        if (warm != null) {
-            log.warn("Redis warm service ENABLED");
-            warm.warmDepartment(id, dept);
-        }else {
-            log.warn("Redis warm service NOT available – skipped");
-        }
+
+        // bắn event, không phụ thuộc Redis
+        publisher.publishEvent(new DepartmentLoadedEvent(id, dept));
+
         return dept;
     }
 
