@@ -3,14 +3,14 @@ package txu.admin.mainapp.config;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.ObjectProvider;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
+import org.springframework.cache.interceptor.CacheErrorHandler;
 import org.springframework.cache.support.CompositeCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -58,5 +58,34 @@ public class RedisConfig {
         composite.setFallbackToNoOpCache(true);
 
         return composite;
+    }
+
+    @Bean
+    public CacheErrorHandler cacheErrorHandler() {
+        return new CacheErrorHandler() {
+            @Override
+            public void handleCacheGetError(
+                    RuntimeException exception, Cache cache, Object key) {
+                log.error("Cache GET error on {} key={}", cache.getName(), key, exception);
+            }
+
+            @Override
+            public void handleCachePutError(
+                    RuntimeException exception, Cache cache, Object key, Object value) {
+                log.error("Cache PUT error on {}", cache.getName(), exception);
+            }
+
+            @Override
+            public void handleCacheEvictError(
+                    RuntimeException exception, Cache cache, Object key) {
+                log.error("Cache EVICT error on {}", cache.getName(), exception);
+            }
+
+            @Override
+            public void handleCacheClearError(
+                    RuntimeException exception, Cache cache) {
+                log.error("Cache CLEAR error on {}", cache.getName(), exception);
+            }
+        };
     }
 }
