@@ -80,47 +80,10 @@ public class DepartmentService {
     }
 
 
-//    public DepartmentEntity getById(int id) {
-//        return departmentDao.findById(id);
-//    }
-
-
-    private final RedisTemplate<String, Object> redisTemplate;
-
     public DepartmentEntity getById(int id) {
-        String key = "department::" + id;
-
-        // 1️⃣ Try Redis trước (best-effort)
-        try {
-            DepartmentEntity cached = (DepartmentEntity)redisTemplate.opsForValue().get(key);
-            if (cached != null) {
-                return cached;
-            }
-        } catch (Exception e) {
-            // Redis chết → IGNORE
-        }
-
-        // 2️⃣ DB luôn là source of truth
-        DepartmentEntity dept = departmentDao.findById(id);
-
-        // 3️⃣ Warm cache async (không block request)
-        warmCacheAsync(key, dept);
-
-        return dept;
+        return departmentDao.findById(id);
     }
 
-    @Async
-    void warmCacheAsync(String key, DepartmentEntity dept) {
-        try {
-            redisTemplate.opsForValue().set(
-                    key,
-                    dept,
-                    Duration.ofMinutes(10)
-            );
-        } catch (Exception e) {
-            // Redis chết → thôi
-        }
-    }
 
 
     public boolean removeById(int id) {
