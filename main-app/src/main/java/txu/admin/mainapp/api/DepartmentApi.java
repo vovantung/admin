@@ -34,12 +34,7 @@ public class DepartmentApi extends AbstractApi {
     @PostMapping(value = "get-by-id")
     @Cacheable(value = "department", key = "#request.id")
     public DepartmentEntity getById(@RequestBody IdRequest request){
-        try {
-            return departmentService.getById(request.getId());
-        } catch (Exception e) {
-            log.warn("Cache failed, fallback DB", e);
-            return departmentService.getById(request.getId());
-        }
+        return  departmentService.getById(request.getId());
     }
 
     @DeleteMapping(value = "remove")
