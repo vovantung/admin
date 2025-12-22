@@ -79,9 +79,17 @@ public class DepartmentService {
         return departmentDao.getWithLimit(limit);
     }
 
+    private final RedisWarmService redisWarmService;
 
     public DepartmentEntity getById(int id) {
-        return departmentDao.findById(id);
+//        return departmentDao.findById(id);
+
+        DepartmentEntity dept = departmentDao.findById(id);
+
+        // Warm Redis BEST-EFFORT (async, optional)
+        redisWarmService.warmDepartment(id, dept);
+
+        return dept;
     }
 
 

@@ -27,37 +27,19 @@ import java.util.concurrent.TimeUnit;
 public class CacheConfig {
 
     @Bean
-    public CacheManager cacheManager(ObjectProvider<RedisConnectionFactory> redisProvider) {
-
-        List<CacheManager> managers = new ArrayList<>();
-
-        RedisConnectionFactory redisFactory = redisProvider.getIfAvailable();
-        if (redisFactory != null) {
-            managers.add(
-                    RedisCacheManager.builder(redisFactory)
-                            .cacheDefaults(
-                                    RedisCacheConfiguration.defaultCacheConfig()
-                                            .entryTtl(Duration.ofMinutes(10))
-                            )
-                            .build()
-            );
-        }
-
+    public CacheManager cacheManager() {
         CaffeineCacheManager caffeine = new CaffeineCacheManager();
         caffeine.setCaffeine(
                 Caffeine.newBuilder()
                         .maximumSize(10_000)
                         .expireAfterWrite(10, TimeUnit.MINUTES)
         );
-        managers.add(caffeine);
-
-        CompositeCacheManager composite = new CompositeCacheManager();
-        composite.setCacheManagers(managers);
-        composite.setFallbackToNoOpCache(true);
-
-        return composite;
+        return caffeine;
     }
 
+    /**
+     * Nuốt MỌI lỗi cache (nếu sau này có thêm cache khác)
+     */
     @Bean
     public CacheErrorHandler cacheErrorHandler() {
         return new SimpleCacheErrorHandler() {
@@ -65,6 +47,12 @@ public class CacheConfig {
             public void handleCacheGetError(RuntimeException e, Cache cache, Object key) {
                 log.warn("Cache GET failed – ignored", e);
             }
+
+            @Override
+            public void handleCachePutError(RuntimeException e, Cache cache, Object key, Object value) {
+                log.warn("Cache PUT failed – ignored", e);
+            }
         };
     }
 }
+
