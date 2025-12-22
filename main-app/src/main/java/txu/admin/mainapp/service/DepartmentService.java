@@ -3,6 +3,7 @@ package txu.admin.mainapp.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Async;
@@ -79,15 +80,16 @@ public class DepartmentService {
         return departmentDao.getWithLimit(limit);
     }
 
-    private final RedisWarmService redisWarmService;
-
+    private final ObjectProvider<RedisWarmService> redisWarmProvider;
     public DepartmentEntity getById(int id) {
 //        return departmentDao.findById(id);
 
         DepartmentEntity dept = departmentDao.findById(id);
 
-        // Warm Redis BEST-EFFORT (async, optional)
-        redisWarmService.warmDepartment(id, dept);
+        RedisWarmService warm = redisWarmProvider.getIfAvailable();
+        if (warm != null) {
+            warm.warmDepartment(id, dept);
+        }
 
         return dept;
     }

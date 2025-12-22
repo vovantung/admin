@@ -2,6 +2,7 @@ package txu.admin.mainapp.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import java.time.Duration;
 
 @Service
 @RequiredArgsConstructor
+@ConditionalOnBean(RedisTemplate.class)
 @Slf4j
 public class RedisWarmService {
 
@@ -25,7 +27,6 @@ public class RedisWarmService {
                     Duration.ofMinutes(10)
             );
         } catch (Exception e) {
-            // Redis chết thì kệ mẹ nó
             log.warn("Redis warm failed – ignored");
         }
     }
