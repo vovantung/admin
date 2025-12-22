@@ -5,15 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import txu.admin.mainapp.dao.AccountDao;
 import txu.admin.mainapp.dao.DepartmentDao;
-import txu.admin.mainapp.entity.AccountEntity;
 import txu.admin.mainapp.entity.DepartmentEntity;
 import txu.common.exception.BadParameterException;
-import txu.common.exception.ConflictException;
 import txu.common.exception.NotFoundException;
 import txu.common.exception.TxException;
 
@@ -82,19 +78,14 @@ public class DepartmentService {
         return departmentDao.getWithLimit(limit);
     }
 
-//    public DepartmentEntity getById(int id) {
-//
-//        return departmentDao.findById(id);
-//    }
-    
-    private final DepartmentService departmentService;
+
     private final RedisHealth redisHealth;
     private final RedisTemplate<String, Object> redis;
 
     public DepartmentEntity getById(int id) {
 
         if (!redisHealth.isAvailable()) {
-            return departmentService.getById(id); // DB luôn OK
+            return departmentDao.findById(id); // DB luôn OK
         }
 
         String key = "department::" + id;
@@ -103,13 +94,13 @@ public class DepartmentService {
             DepartmentEntity cached = (DepartmentEntity)redis.opsForValue().get(key);
             if (cached != null) return cached;
 
-            DepartmentEntity db = departmentService.getById(id);
+            DepartmentEntity db = departmentDao.findById(id);;
             redis.opsForValue().set(key, db, Duration.ofMinutes(10));
             return db;
 
         } catch (Exception e) {
             log.warn("Redis error → fallback DB", e);
-            return departmentService.getById(id);
+            return departmentDao.findById(id);
         }
     }
 
