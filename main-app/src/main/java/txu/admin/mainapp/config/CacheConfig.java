@@ -8,6 +8,7 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.cache.interceptor.CacheErrorHandler;
+import org.springframework.cache.interceptor.SimpleCacheErrorHandler;
 import org.springframework.cache.support.CompositeCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,28 +24,25 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 @EnableCaching
 @Slf4j
-public class RedisConfig {
+public class CacheConfig {
 
     @Bean
-    public CacheManager cacheManager(
-            ObjectProvider<RedisConnectionFactory> redisFactoryProvider
-    ) {
+    public CacheManager cacheManager(ObjectProvider<RedisConnectionFactory> redisProvider) {
+
         List<CacheManager> managers = new ArrayList<>();
 
-        // Redis (optional)
-        RedisConnectionFactory redisFactory = redisFactoryProvider.getIfAvailable();
+        RedisConnectionFactory redisFactory = redisProvider.getIfAvailable();
         if (redisFactory != null) {
-            RedisCacheManager redisCacheManager =
+            managers.add(
                     RedisCacheManager.builder(redisFactory)
                             .cacheDefaults(
                                     RedisCacheConfiguration.defaultCacheConfig()
                                             .entryTtl(Duration.ofMinutes(10))
                             )
-                            .build();
-            managers.add(redisCacheManager);
+                            .build()
+            );
         }
 
-        // Caffeine fallback
         CaffeineCacheManager caffeine = new CaffeineCacheManager();
         caffeine.setCaffeine(
                 Caffeine.newBuilder()
@@ -62,29 +60,10 @@ public class RedisConfig {
 
     @Bean
     public CacheErrorHandler cacheErrorHandler() {
-        return new CacheErrorHandler() {
+        return new SimpleCacheErrorHandler() {
             @Override
-            public void handleCacheGetError(
-                    RuntimeException exception, Cache cache, Object key) {
-                log.error("Cache GET error on {} key={}", cache.getName(), key, exception);
-            }
-
-            @Override
-            public void handleCachePutError(
-                    RuntimeException exception, Cache cache, Object key, Object value) {
-                log.error("Cache PUT error on {}", cache.getName(), exception);
-            }
-
-            @Override
-            public void handleCacheEvictError(
-                    RuntimeException exception, Cache cache, Object key) {
-                log.error("Cache EVICT error on {}", cache.getName(), exception);
-            }
-
-            @Override
-            public void handleCacheClearError(
-                    RuntimeException exception, Cache cache) {
-                log.error("Cache CLEAR error on {}", cache.getName(), exception);
+            public void handleCacheGetError(RuntimeException e, Cache cache, Object key) {
+                log.warn("Cache GET failed – ignored", e);
             }
         };
     }
