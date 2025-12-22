@@ -32,7 +32,7 @@ public class DepartmentApi extends AbstractApi {
 
 
     @PostMapping(value = "get-by-id")
-    @Cacheable(value = "department", key = "#request.id")
+    @Cacheable(value = "department", key = "#request.id", condition = "@redisHealth.available")
     public DepartmentEntity getById(@RequestBody IdRequest request){
         return  departmentService.getById(request.getId());
     }
