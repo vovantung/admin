@@ -86,10 +86,10 @@ public class DepartmentService {
 //
 //        return departmentDao.findById(id);
 //    }
-
-    private final RedisTemplate<String, DepartmentEntity> redisTemplate;
+    
     private final DepartmentService departmentService;
     private final RedisHealth redisHealth;
+    private final RedisTemplate<String, Object> redis;
 
     public DepartmentEntity getById(int id) {
 
@@ -100,11 +100,11 @@ public class DepartmentService {
         String key = "department::" + id;
 
         try {
-            DepartmentEntity cached = redisTemplate.opsForValue().get(key);
+            DepartmentEntity cached = (DepartmentEntity)redis.opsForValue().get(key);
             if (cached != null) return cached;
 
             DepartmentEntity db = departmentService.getById(id);
-            redisTemplate.opsForValue().set(key, db, Duration.ofMinutes(10));
+            redis.opsForValue().set(key, db, Duration.ofMinutes(10));
             return db;
 
         } catch (Exception e) {
@@ -112,7 +112,6 @@ public class DepartmentService {
             return departmentService.getById(id);
         }
     }
-    
 
     public boolean removeById(int id) {
         DepartmentEntity department = departmentDao.findById(id);
