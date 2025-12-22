@@ -1,30 +1,28 @@
 package txu.admin.mainapp.config;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import com.github.benmanes.caffeine.cache.Caffeine;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
+
+
+import java.util.concurrent.TimeUnit;
 
 
 @Configuration
-@ConditionalOnProperty(
-        name = "spring.redis.enabled",
-        havingValue = "true",
-        matchIfMissing = false
-)
+@EnableCaching
 public class CacheConfig {
 
     @Bean
-    public RedisTemplate<String, Object> redisTemplate(
-            RedisConnectionFactory factory
-    ) {
-        RedisTemplate<String, Object> template = new RedisTemplate<>();
-        template.setConnectionFactory(factory);
-        template.setKeySerializer(new StringRedisSerializer());
-        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
-        return template;
+    public CacheManager cacheManager() {
+        CaffeineCacheManager cm = new CaffeineCacheManager("department");
+        cm.setCaffeine(
+                Caffeine.newBuilder()
+                        .maximumSize(10_000)
+                        .expireAfterWrite(10, TimeUnit.MINUTES)
+        );
+        return cm;
     }
 }
