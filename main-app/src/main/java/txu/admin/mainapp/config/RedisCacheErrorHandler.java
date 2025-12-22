@@ -8,7 +8,6 @@ import org.springframework.data.redis.RedisConnectionFailureException;
 
 @Slf4j
 @Configuration
-
 public class RedisCacheErrorHandler implements CacheErrorHandler {
     @Override
     public void handleCacheGetError(RuntimeException exception, Cache cache, Object key) {
