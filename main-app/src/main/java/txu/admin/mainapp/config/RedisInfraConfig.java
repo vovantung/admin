@@ -11,7 +11,7 @@ import org.springframework.data.redis.support.collections.RedisProperties;
 
 @Configuration
 public class RedisInfraConfig {
-    
+
     @Bean
     @ConditionalOnBean(RedisConnectionFactory.class)
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory cf) {

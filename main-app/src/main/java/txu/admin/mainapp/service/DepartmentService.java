@@ -82,15 +82,14 @@ public class DepartmentService {
 
     private final ObjectProvider<RedisWarmService> redisWarmProvider;
     public DepartmentEntity getById(int id) {
-//        return departmentDao.findById(id);
-
         DepartmentEntity dept = departmentDao.findById(id);
-
         RedisWarmService warm = redisWarmProvider.getIfAvailable();
         if (warm != null) {
+            log.warn("Đã kết nối redis thành công");
             warm.warmDepartment(id, dept);
+        }else {
+            log.warn("Đã không kết nối được redis");
         }
-
         return dept;
     }
 
