@@ -85,15 +85,13 @@ public class DepartmentService {
         DepartmentEntity dept = departmentDao.findById(id);
         RedisWarmService warm = redisWarmProvider.getIfAvailable();
         if (warm != null) {
-            log.warn("Đã kết nối redis thành công");
+            log.warn("Redis warm service ENABLED");
             warm.warmDepartment(id, dept);
         }else {
-            log.warn("Đã không kết nối được redis");
+            log.warn("Redis warm service NOT available – skipped");
         }
         return dept;
     }
-
-
 
     public boolean removeById(int id) {
         DepartmentEntity department = departmentDao.findById(id);
