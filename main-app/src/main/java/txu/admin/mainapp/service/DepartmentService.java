@@ -75,26 +75,11 @@ public class DepartmentService {
         } else {
             throw new NotFoundException("Department not found");
         }
-
     }
 
     public List<DepartmentEntity> getWithLimit(int limit) {
         return departmentDao.getWithLimit(limit);
     }
-
-//    private final ObjectProvider<RedisWarmService> redisWarmProvider;
-//    public DepartmentEntity getById(int id) {
-//        DepartmentEntity dept = departmentDao.findById(id);
-//        RedisWarmService warm = redisWarmProvider.getIfAvailable();
-//        if (warm != null) {
-//            log.warn("Redis warm service ENABLED");
-//            warm.warmDepartment(id, dept);
-//        }else {
-//            log.warn("Redis warm service NOT available – skipped");
-//        }
-//        return dept;
-//    }
-
 
 //    private final ApplicationEventPublisher publisher;
 //
@@ -107,8 +92,6 @@ public class DepartmentService {
 //        return dept;
 //    }
 
-
-
     private final RedisTemplate<String, Object> redisTemplate;
 
     public DepartmentEntity getById(int id) {
@@ -119,6 +102,7 @@ public class DepartmentService {
             DepartmentEntity cached =
                     (DepartmentEntity) redisTemplate.opsForValue().get(key);
             if (cached != null) {
+                log.info("Get result from Redis is successful");
                 return cached;
             }
         } catch (Exception e) {
@@ -127,6 +111,7 @@ public class DepartmentService {
 
         // 2️⃣ DB là source of truth
         DepartmentEntity dept = departmentDao.findById(id);
+        log.info("Get result from DB is successful");
 
         // 3️⃣ Try Redis SET (best-effort)
         try {
@@ -136,11 +121,8 @@ public class DepartmentService {
         } catch (Exception e) {
             log.warn("Redis SET failed – ignored");
         }
-
         return dept;
     }
-
-
 
     public boolean removeById(int id) {
         DepartmentEntity department = departmentDao.findById(id);
