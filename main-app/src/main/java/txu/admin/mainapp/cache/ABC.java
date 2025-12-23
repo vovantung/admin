@@ -2,13 +2,8 @@ package txu.admin.mainapp.cache;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
-
 import java.time.Duration;
 import java.util.concurrent.Executor;
 import java.util.function.Supplier;
@@ -16,19 +11,10 @@ import java.util.function.Supplier;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-//@ConditionalOnBean(RedisConnectionFactory.class)
-public class RedisCacheClient implements CacheClient {
+public class ABC implements ABCD {
 
     private final RedisTemplate<String, Object> redisTemplate;
     private final Executor executor;
-
-//    public RedisCacheClient(
-//            RedisTemplate<String, Object> redisTemplate,
-//            @Qualifier("cacheExecutor") Executor executor
-//    ) {
-//        this.redisTemplate = redisTemplate;
-//        this.executor = executor;
-//    }
 
     @Override
     public <T> T get(

@@ -6,6 +6,8 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import txu.common.cache.CacheClient;
+import txu.common.cache.RedisCacheClient;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -26,10 +28,14 @@ public class RedisClientConfig {
         return template;
     }
 
-//    @Bean("cacheExecutor")
     @Bean
     public Executor executor() {
         return Executors.newFixedThreadPool(2);
+    }
+
+    @Bean
+    public CacheClient cacheClient(RedisTemplate<String, Object> redisTemplate, Executor executor) {
+        return new RedisCacheClient(redisTemplate, executor);
     }
 }
 

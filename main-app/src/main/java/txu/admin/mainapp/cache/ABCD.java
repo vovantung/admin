@@ -3,7 +3,7 @@ package txu.admin.mainapp.cache;
 import java.time.Duration;
 import java.util.function.Supplier;
 
-public interface CacheClient {
+public interface ABCD {
     <T> T get(
             String key,
             Class<T> type,
