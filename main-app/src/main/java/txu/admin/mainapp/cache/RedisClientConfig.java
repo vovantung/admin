@@ -1,4 +1,4 @@
-package txu.admin.mainapp.config;
+package txu.admin.mainapp.cache;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,35 +7,28 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-//@Configuration
-public class RedisConfig {
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
-//    @Bean
+@Configuration
+public class RedisClientConfig {
+
+    @Bean
     public RedisTemplate<String, Object> redisTemplate(
             RedisConnectionFactory factory
     ) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
+
         template.setKeySerializer(new StringRedisSerializer());
         template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+
         return template;
+    }
+
+    @Bean("cacheExecutor")
+    public Executor cacheExecutor() {
+        return Executors.newFixedThreadPool(2);
     }
 }
 
-
-
-//@Configuration
-//@EnableCaching
-//public class CacheConfig {
-//
-//    @Bean
-//    public CacheManager cacheManager() {
-//        CaffeineCacheManager cm = new CaffeineCacheManager("department");
-//        cm.setCaffeine(
-//                Caffeine.newBuilder()
-//                        .maximumSize(10_000)
-//                        .expireAfterWrite(10, TimeUnit.SECONDS)
-//        );
-//        return cm;
-//    }
-//}

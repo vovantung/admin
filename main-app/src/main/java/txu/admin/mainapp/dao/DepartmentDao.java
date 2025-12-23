@@ -28,7 +28,6 @@ public class DepartmentDao extends AbstractDao<DepartmentEntity> {
 
     @Override
     public DepartmentEntity findById(Object Id) {
-        log.info("Đã gọi db");
         return super.findById(Id);
     }
 
