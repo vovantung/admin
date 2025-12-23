@@ -1,6 +1,7 @@
 package txu.admin.mainapp.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
@@ -10,6 +11,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import txu.admin.mainapp.cache.CacheClient;
+import txu.admin.mainapp.cache.NoOpCacheClient;
 import txu.common.grpc.GrpcConfig;
 
 @Component
@@ -44,6 +47,12 @@ public class AuthConfiguration implements GrpcConfig {
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate(clientHttpRequestFactory());
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(CacheClient.class)
+    public CacheClient fallbackCacheClient() {
+        return new NoOpCacheClient();
     }
 
 }

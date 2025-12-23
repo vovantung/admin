@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import java.time.Duration;
 import java.util.function.Supplier;
 
-@Component
 @ConditionalOnMissingBean(CacheClient.class)
 public class NoOpCacheClient implements CacheClient {
 
