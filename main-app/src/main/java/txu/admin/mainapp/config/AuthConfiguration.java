@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import txu.admin.mainapp.cache.CacheClient;
 import txu.admin.mainapp.cache.NoOpCacheClient;
+import txu.admin.mainapp.cache.RedisCacheClient;
 import txu.common.grpc.GrpcConfig;
 
 @Component
@@ -49,10 +50,11 @@ public class AuthConfiguration implements GrpcConfig {
         return new RestTemplate(clientHttpRequestFactory());
     }
 
-    @Bean
-    @ConditionalOnMissingBean(CacheClient.class)
-    public CacheClient fallbackCacheClient() {
-        return new NoOpCacheClient();
-    }
+//    @Bean
+//    @ConditionalOnMissingBean(CacheClient.class)
+//    public CacheClient fallbackCacheClient() {
+//        return new NoOpCacheClient();
+//    }
+
 
 }

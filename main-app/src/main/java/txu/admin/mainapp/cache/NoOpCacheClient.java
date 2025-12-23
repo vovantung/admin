@@ -6,21 +6,21 @@ import org.springframework.stereotype.Component;
 import java.time.Duration;
 import java.util.function.Supplier;
 
-@ConditionalOnMissingBean(CacheClient.class)
-public class NoOpCacheClient implements CacheClient {
+//@ConditionalOnMissingBean(CacheClient.class)
+public class NoOpCacheClient {
 
-    @Override
-    public <T> T get(
-            String key,
-            Class<T> type,
-            Duration ttl,
-            Supplier<T> loader
-    ) {
-        return loader.get();
-    }
-
-    @Override
-    public void evict(String key) {
-        // no-op
-    }
+//    @Override
+//    public <T> T get(
+//            String key,
+//            Class<T> type,
+//            Duration ttl,
+//            Supplier<T> loader
+//    ) {
+//        return loader.get();
+//    }
+//
+//    @Override
+//    public void evict(String key) {
+//        // no-op
+//    }
 }

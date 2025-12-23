@@ -49,6 +49,7 @@ public class RedisCacheClient implements CacheClient {
         // 2️⃣ DB is source of truth
         T value = loader.get();
         if (value != null) {
+            log.info("Get result from DB is successful");
             // 3️⃣ Async warm cache
             asyncSet(key, value, ttl);
         }
