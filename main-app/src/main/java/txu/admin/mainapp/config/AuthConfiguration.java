@@ -1,8 +1,8 @@
 package txu.admin.mainapp.config;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,10 +10,6 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
-import txu.admin.mainapp.cache.CacheClient;
-import txu.admin.mainapp.cache.NoOpCacheClient;
-import txu.admin.mainapp.cache.RedisCacheClient;
 import txu.common.grpc.GrpcConfig;
 
 @Component
@@ -45,16 +41,9 @@ public class AuthConfiguration implements GrpcConfig {
         return new BCryptPasswordEncoder(); // Sử dụng mã hóa BCrypt
     }
 
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate(clientHttpRequestFactory());
-    }
-
 //    @Bean
-//    @ConditionalOnMissingBean(CacheClient.class)
-//    public CacheClient fallbackCacheClient() {
-//        return new NoOpCacheClient();
+//    public RestTemplate restTemplate() {
+//        return new RestTemplate(clientHttpRequestFactory());
 //    }
-
 
 }

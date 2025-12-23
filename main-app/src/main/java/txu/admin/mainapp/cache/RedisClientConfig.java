@@ -26,8 +26,9 @@ public class RedisClientConfig {
         return template;
     }
 
-    @Bean("cacheExecutor")
-    public Executor cacheExecutor() {
+//    @Bean("cacheExecutor")
+    @Bean
+    public Executor executor() {
         return Executors.newFixedThreadPool(2);
     }
 }
