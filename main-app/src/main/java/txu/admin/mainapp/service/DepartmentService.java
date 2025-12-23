@@ -96,16 +96,51 @@ public class DepartmentService {
 //    }
 
 
-    private final ApplicationEventPublisher publisher;
+//    private final ApplicationEventPublisher publisher;
+//
+//    public DepartmentEntity getById(int id) {
+//        DepartmentEntity dept = departmentDao.findById(id);
+//
+//        // bắn event, không phụ thuộc Redis
+//        publisher.publishEvent(new DepartmentLoadedEvent(id, dept));
+//
+//        return dept;
+//    }
+
+
+
+    private final RedisTemplate<String, Object> redisTemplate;
 
     public DepartmentEntity getById(int id) {
+        String key = "department:" + id;
+
+        // 1️⃣ Try Redis (best-effort)
+        try {
+            DepartmentEntity cached =
+                    (DepartmentEntity) redisTemplate.opsForValue().get(key);
+            if (cached != null) {
+                return cached;
+            }
+        } catch (Exception e) {
+            log.warn("Redis GET failed – ignored");
+        }
+
+        // 2️⃣ DB là source of truth
         DepartmentEntity dept = departmentDao.findById(id);
 
-        // bắn event, không phụ thuộc Redis
-        publisher.publishEvent(new DepartmentLoadedEvent(id, dept));
+        // 3️⃣ Try Redis SET (best-effort)
+        try {
+            redisTemplate.opsForValue().set(
+                    key, dept, Duration.ofMinutes(10)
+            );
+        } catch (Exception e) {
+            log.warn("Redis SET failed – ignored");
+        }
 
         return dept;
     }
+
+
 
     public boolean removeById(int id) {
         DepartmentEntity department = departmentDao.findById(id);
