@@ -24,6 +24,9 @@ spec:
           volumeMounts:
             - name: backend-logs
               mountPath: /logs
+            - name: kafka-tls
+              mountPath: /etc/kafka/tls
+              readOnly: true
           resources:
             requests:
               cpu: "1000m"
@@ -33,6 +36,9 @@ spec:
         - name: backend-logs
           persistentVolumeClaim:
             claimName: pvc-backend-logs
+        - name: kafka-tls
+          secret:
+            secretName: kafka-user1
       imagePullSecrets:
         - name: ecr-secret
 ---
