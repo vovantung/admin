@@ -6,10 +6,9 @@ import org.joda.time.DateTime;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import txu.admin.mainapp.cache.ABCD;
 import txu.admin.mainapp.dao.DepartmentDao;
 import txu.admin.mainapp.entity.DepartmentEntity;
-import txu.common.cache.CacheClient;
+import txu.common.cache.RedisCacheClient;
 import txu.common.exception.BadParameterException;
 import txu.common.exception.NotFoundException;
 import txu.common.exception.TxException;
@@ -89,40 +88,8 @@ public class DepartmentService {
 //        return dept;
 //    }
 
-//    private final RedisTemplate<String, Object> redisTemplate;
-//
-//    public DepartmentEntity getById(int id) {
-//        String key = "department:" + id;
-//
-//        // 1️⃣ Try Redis (best-effort)
-//        try {
-//            DepartmentEntity cached =
-//                    (DepartmentEntity) redisTemplate.opsForValue().get(key);
-//            if (cached != null) {
-//                log.info("Get result from Redis is successful");
-//                return cached;
-//            }
-//        } catch (Exception e) {
-//            log.warn("Redis GET failed – ignored");
-//        }
-//
-//        // 2️⃣ DB là source of truth
-//        DepartmentEntity dept = departmentDao.findById(id);
-//        log.info("Get result from DB is successful");
-//
-//        // 3️⃣ Try Redis SET (best-effort)
-//        try {
-//            redisTemplate.opsForValue().set(
-//                    key, dept, Duration.ofMinutes(10) // Key sẽ tự xóa trong Redis sau 10 phút
-//            );
-//        } catch (Exception e) {
-//            log.warn("Redis SET failed – ignored");
-//        }
-//        return dept;
-//    }
 
-
-    private final CacheClient cacheClient;
+    private final RedisCacheClient cacheClient;
 
     public DepartmentEntity getById(int id) {
         return cacheClient.get(

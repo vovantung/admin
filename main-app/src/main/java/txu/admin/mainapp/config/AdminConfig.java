@@ -2,7 +2,6 @@ package txu.admin.mainapp.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Component;
 import txu.common.grpc.GrpcConfig;
 
 @Component
-public class AuthConfiguration implements GrpcConfig {
+public class AdminConfig implements GrpcConfig {
 
     @Value("${server.grpc.port}")
     private int grpcPort;
@@ -40,10 +39,4 @@ public class AuthConfiguration implements GrpcConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(); // Sử dụng mã hóa BCrypt
     }
-
-//    @Bean
-//    public RestTemplate restTemplate() {
-//        return new RestTemplate(clientHttpRequestFactory());
-//    }
-
 }

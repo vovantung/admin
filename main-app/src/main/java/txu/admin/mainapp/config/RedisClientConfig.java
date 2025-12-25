@@ -1,4 +1,4 @@
-package txu.admin.mainapp.cache;
+package txu.admin.mainapp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,7 +6,6 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import txu.common.cache.CacheClient;
 import txu.common.cache.RedisCacheClient;
 
 import java.util.concurrent.Executor;
@@ -34,7 +33,7 @@ public class RedisClientConfig {
     }
 
     @Bean
-    public CacheClient cacheClient(RedisTemplate<String, Object> redisTemplate, Executor executor) {
+    public RedisCacheClient cacheClient(RedisTemplate<String, Object> redisTemplate, Executor executor) {
         return new RedisCacheClient(redisTemplate, executor);
     }
 }
