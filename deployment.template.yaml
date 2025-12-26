@@ -21,6 +21,12 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          env:
+            - name: KAFKA_USER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-user1
+                  key: user.password
           volumeMounts:
             - name: backend-logs
               mountPath: /logs
