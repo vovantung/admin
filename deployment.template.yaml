@@ -27,6 +27,9 @@ spec:
             - name: kafka-tls
               mountPath: /etc/kafka/tls
               readOnly: true
+            - name: kafka-ca
+              mountPath: /etc/kafka/ca
+              readOnly: true
           resources:
             requests:
               cpu: "1000m"
@@ -39,6 +42,9 @@ spec:
         - name: kafka-tls
           secret:
             secretName: kafka-user1
+        - name: kafka-ca
+          secret:
+            secretName: kafka-cluster-ca
       imagePullSecrets:
         - name: ecr-secret
 ---
