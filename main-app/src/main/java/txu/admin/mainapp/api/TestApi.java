@@ -9,6 +9,7 @@ import txu.admin.mainapp.dto.IdRequest;
 import txu.admin.mainapp.dto.LimitRequest;
 import txu.admin.mainapp.entity.DepartmentEntity;
 import txu.admin.mainapp.service.DepartmentService;
+import txu.admin.mainapp.service.MessageProducer;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class TestApi extends AbstractApi {
 
     private final DepartmentService departmentService;
     private final KafkaTemplate<String, String> kafkaTemplate;
+    private final MessageProducer messageProducer;
 
 
     @PostMapping(value = "get-by-id")
@@ -36,5 +38,13 @@ public class TestApi extends AbstractApi {
         String str = "Vo Thi Ngoc Uyen";
         kafkaTemplate.send("orders-events", str);
     }
+
+    @PostMapping(value = "send-message-activemq")
+    public void send_activemq() {
+        String str = "Vo Thi Ngoc Uyen";
+        messageProducer.send(str);
+    }
+
+
 
 }
