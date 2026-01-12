@@ -1,0 +1,10 @@
+package txu.admin.mainapp.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class TestRequest {
+    private String str;
+}

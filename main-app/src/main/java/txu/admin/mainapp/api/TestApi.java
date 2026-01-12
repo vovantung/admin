@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import txu.admin.mainapp.base.AbstractApi;
 import txu.admin.mainapp.dto.IdRequest;
 import txu.admin.mainapp.dto.LimitRequest;
+import txu.admin.mainapp.dto.TestRequest;
 import txu.admin.mainapp.entity.DepartmentEntity;
 import txu.admin.mainapp.service.DepartmentService;
 import txu.admin.mainapp.service.MessageProducer;
@@ -40,11 +41,8 @@ public class TestApi extends AbstractApi {
     }
 
     @PostMapping(value = "send-message-activemq")
-    public void send_activemq() {
-        String str = "Vo Thi Ngoc Uyen";
-        messageProducer.send(str);
+    public void send_activemq(@RequestBody TestRequest request) {
+        messageProducer.send(request.getStr());
     }
-
-
 
 }
