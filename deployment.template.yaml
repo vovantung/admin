@@ -91,30 +91,29 @@ spec:
     app: admin
 
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: admin-kong-ingress
-  namespace: backend
-  annotations:
-    konghq.com/strip-path: "true"
-    konghq.com/proxy-body-size: "300m"
-    konghq.com/plugins: jwt-auth, txu-plugins     # Gắn plugin vào route
-spec:
-  ingressClassName: kong            # KIC sẽ quản lý Ingress được gắn ingress-class của mình, nếu được gắn thêm plugins của KIC thì KIC sẽ sync route này vào Kong (admin, proxy)
-  rules:
-    - host: backend.txuyen.com
-      http:
-        paths:
-          - path: /admin
-            pathType: Prefix
-            backend:
-              service:
-                name: admin
-                port:
-                  number: 8080
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: admin-kong-ingress
+#  namespace: backend
+#  annotations:
+#    konghq.com/strip-path: "true"
+#    konghq.com/proxy-body-size: "300m"
+#    konghq.com/plugins: jwt-auth, txu-plugins     # Gắn plugin vào route
+#spec:
+#  ingressClassName: kong            # KIC sẽ quản lý Ingress được gắn ingress-class của mình, nếu được gắn thêm plugins của KIC thì KIC sẽ sync route này vào Kong (admin, proxy)
+#  rules:
+#    - host: backend.txuyen.com
+#      http:
+#        paths:
+#          - path: /admin
+#            pathType: Prefix
+#            backend:
+#              service:
+#                name: admin
+#                port:
+#                  number: 8080
 
----
 
 #apiVersion: monitoring.coreos.com/v1
 #kind: ServiceMonitor
