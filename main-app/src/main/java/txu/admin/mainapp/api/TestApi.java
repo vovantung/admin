@@ -17,7 +17,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/admin")
 @RequiredArgsConstructor
 public class TestApi extends AbstractApi {
 
@@ -43,6 +43,11 @@ public class TestApi extends AbstractApi {
     @PostMapping(value = "send-message-activemq")
     public void send_activemq(@RequestBody TestRequest request) {
         messageProducer.send(request.getStr());
+    }
+
+    @GetMapping(value = "/test")
+    public String test() {
+        return "Phan Thi Xuyen";
     }
 
 }
