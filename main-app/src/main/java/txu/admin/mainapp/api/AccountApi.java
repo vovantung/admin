@@ -14,7 +14,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/admin/account")
 @RequiredArgsConstructor
 public class AccountApi extends AbstractApi {
 

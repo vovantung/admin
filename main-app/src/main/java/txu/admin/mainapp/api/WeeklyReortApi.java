@@ -12,7 +12,7 @@ import txu.admin.mainapp.service.WeeklyReportService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/weekly-report")
+@RequestMapping("/admin/weekly-report")
 @RequiredArgsConstructor
 public class WeeklyReortApi extends AbstractApi {
 

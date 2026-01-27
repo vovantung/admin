@@ -13,7 +13,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/role")
+@RequestMapping("/admin/role")
 @RequiredArgsConstructor
 public class RoleApi extends AbstractApi {
 

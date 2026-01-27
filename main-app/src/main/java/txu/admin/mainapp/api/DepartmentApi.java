@@ -14,7 +14,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/department")
+@RequestMapping("/admin/department")
 @RequiredArgsConstructor
 public class DepartmentApi extends AbstractApi {
 
