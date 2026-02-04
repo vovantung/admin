@@ -1,13 +1,13 @@
 package txu.admin.mainapp.dto;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
-public class CreateKeycloakUserCommand implements Serializable {
+@Data
+public class CreateKeycloakUserCommand {
     private String sagaId;
     private String userId;
     private String username;
