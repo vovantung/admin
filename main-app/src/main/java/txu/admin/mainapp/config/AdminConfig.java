@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 import txu.common.grpc.GrpcConfig;
 
 @Component
@@ -38,5 +39,10 @@ public class AdminConfig implements GrpcConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(); // Sử dụng mã hóa BCrypt
+    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate(clientHttpRequestFactory());
     }
 }
