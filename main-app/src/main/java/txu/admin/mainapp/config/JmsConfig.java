@@ -25,4 +25,6 @@ public class JmsConfig {
     public JmsTemplate jmsTemplate(ConnectionFactory cf) {
         return new JmsTemplate(cf);
     }
+
+
 }

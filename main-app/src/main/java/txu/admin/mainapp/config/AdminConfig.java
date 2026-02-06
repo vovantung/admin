@@ -13,7 +13,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import txu.admin.mainapp.dto.CreateKeycloakUserCommand;
 import txu.common.grpc.GrpcConfig;
+
+import java.util.Map;
 
 @Component
 public class AdminConfig implements GrpcConfig {
@@ -50,11 +53,16 @@ public class AdminConfig implements GrpcConfig {
     }
 
     @Bean
-    public MessageConverter jacksonJmsMessageConverter() {
+    public MappingJackson2MessageConverter jacksonJmsConverter() {
         MappingJackson2MessageConverter converter =
                 new MappingJackson2MessageConverter();
+
         converter.setTargetType(MessageType.TEXT);
         converter.setTypeIdPropertyName("_type");
+        converter.setTypeIdMappings(Map.of(
+                "CreateKeycloakUserCommand", CreateKeycloakUserCommand.class
+        ));
         return converter;
     }
+
 }
