@@ -7,9 +7,9 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import txu.admin.mainapp.dto.CreateHRUserCommand;
-import txu.admin.mainapp.dto.CreateKeycloakUserCommand;
 import txu.admin.mainapp.dto.DeleteUserCommand;
 import txu.admin.mainapp.dto.SagaReplyEvent;
+import txu.common.saga.contract.command.CreateKeycloakUserCommand;
 
 import java.util.Map;
 
