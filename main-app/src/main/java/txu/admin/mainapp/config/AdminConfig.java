@@ -48,26 +48,12 @@ public class AdminConfig implements GrpcConfig {
         return new RestTemplate(clientHttpRequestFactory());
     }
 
-//    @Bean
-//    public MappingJackson2MessageConverter jacksonJmsConverter() {
-//        MappingJackson2MessageConverter converter =
-//                new MappingJackson2MessageConverter();
-//
-//        converter.setTargetType(MessageType.TEXT);
-//        converter.setTypeIdPropertyName("_type");
-//        converter.setTypeIdMappings(Map.of(
-//                "CreateKeycloakUserCommand", CreateKeycloakUserCommand.class
-//        ));
-//        return converter;
-//    }
-
     @Bean
-    public MappingJackson2MessageConverter jacksonJmsConverter() {
-
+    public MappingJackson2MessageConverter jacksonJmsMessageConverter() {
         MappingJackson2MessageConverter converter =
                 new MappingJackson2MessageConverter();
 
-        converter.setTargetType(MessageType.TEXT);
+        converter.setTargetType(MessageType.TEXT); // QUAN TRỌNG
         converter.setTypeIdPropertyName("_type");
 
         return converter;

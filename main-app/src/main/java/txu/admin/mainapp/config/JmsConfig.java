@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 
 @Configuration
 @EnableJms
@@ -21,10 +22,19 @@ public class JmsConfig {
         factory.setPassword("Phan@123");
         return factory;
     }
-    @Bean
-    public JmsTemplate jmsTemplate(ConnectionFactory cf) {
-        return new JmsTemplate(cf);
-    }
+//    @Bean
+//    public JmsTemplate jmsTemplate(ConnectionFactory cf) {
+//        return new JmsTemplate(cf);
+//    }
 
+    @Bean
+    public JmsTemplate jmsTemplate(
+            ConnectionFactory connectionFactory,
+            MappingJackson2MessageConverter converter
+    ) {
+        JmsTemplate template = new JmsTemplate(connectionFactory);
+        template.setMessageConverter(converter);
+        return template;
+    }
 
 }
