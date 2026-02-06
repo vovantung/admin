@@ -56,9 +56,7 @@ public class MessageConsumer {
     }
 
     @JmsListener(destination = "hr.create.user.queue")
-    @Transactional
     public void createHRUser(CreateHRUserCommand cmd) {
-
         try {
 //            hrUserRepository.createUser(cmd.getKeycloakUserId());
             log.info("Da tao HRUser");
